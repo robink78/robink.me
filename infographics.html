@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RobinK.me | Kurumsal İnfografiklerimiz / Our Corporate Infographics</title>
+  <meta name="description" content="Otonom iş süreçlerinin, yapay zeka ajanlarının ve kurumsal ölçeklendirmenin teknik şemaları ve infografikleri.">
+  
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self';">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+
+  <noscript>
+    <style>
+      #preloader { display: none !important; }
+      #app-wrapper { opacity: 1 !important; visibility: visible !important; }
+    </style>
+  </noscript>
+</head>
+<body>
+
+  <div id="preloader" class="preloader-w">
+    <div class="preloader-logo-w">
+      <div class="preloader-logo-transform">
+        <div class="preloader-bird-container">
+          <img src="assets/images/robin-bird.jpg" id="preloader-bird" alt="Robin Bird Logo" class="preloader-bird-large">
+        </div>
+        
+        <div class="preloader-brand-wrapper">
+          <div class="preloader-brand-logo">
+            <span>ROBINK.ME</span>
+          </div>
+          <div class="preloader-sketch-w">
+            <svg class="sketch-svg" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path class="sketch-path" d="M10 20 Q 100 35, 190 20" stroke="var(--accent-red)" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="preloader-text-w">
+      <div id="preloader-percent" class="text-preloader-percent">00</div>
+      <div class="text-preloader-tagline">Şirketler İçin Otonom Süreçler İşletim Sistemi</div>
+    </div>
+  </div>
+
+  <div id="app-wrapper" class="page-w" style="opacity: 0; visibility: hidden;">
+    
+    <header class="nav-w">
+      <div class="nav-container">
+        <a href="index.html" class="nav-brand">
+          <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+          <span class="brand-text">ROBINK.ME</span>
+        </a>
+
+        <div class="nav-clocks-row">
+          <div class="clock-item active" data-tz="Europe/Istanbul" data-label="IST">
+            <span class="bracket">(</span><span class="clock-label">IST</span><span class="bracket">)</span>
+            <span class="clock-time" id="time-ist">00:00:00</span>
+          </div>
+          <div class="clock-item" data-tz="Europe/London" data-label="LON">
+            <span class="bracket">(</span><span class="clock-label">LON</span><span class="bracket">)</span>
+            <span class="clock-time" id="time-lon">00:00:00</span>
+          </div>
+          <div class="clock-item" data-tz="America/New_York" data-label="NYC">
+            <span class="bracket">(</span><span class="clock-label">NYC</span><span class="bracket">)</span>
+            <span class="clock-time" id="time-nyc">00:00:00</span>
+          </div>
+          <div class="clock-item" data-tz="Asia/Tokyo" data-label="TYO">
+            <span class="bracket">(</span><span class="clock-label">TYO</span><span class="bracket">)</span>
+            <span class="clock-time" id="time-tyo">00:00:00</span>
+          </div>
+        </div>
+
+        <div class="nav-actions">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Renk Modu Değiştir / Toggle Color Theme">
+            <!-- Moon Icon (Crescent Moon SVG) -->
+            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <!-- Sun Icon (Sun SVG) -->
+            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
+            </svg>
+          </button>
+
+          <button id="menu-trigger" class="nav-menu-btn" aria-label="Menu">
+            <span class="menu-text-open">Menu</span>
+            <span class="menu-text-close" style="display: none;">Close</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div id="menu-drawer" class="nav-menu">
+      <div class="nav-menu-layout">
+        <ul class="nav-links-list">
+          <li>
+            <a href="index.html?action=about" class="nav-link-item" role="button">
+              <span class="link-bracket">( )</span>
+              <span class="link-text">Hakkımızda / About Us</span>
+              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
+                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html?section=workflows" class="nav-link-item color-red" role="button">
+              <span class="link-bracket">([O])</span>
+              <span class="link-text">Otonom Süreçler / Autonomous Workflows</span>
+              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
+                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html?section=agents" class="nav-link-item color-green" role="button">
+              <span class="link-bracket">([A])</span>
+              <span class="link-text">Yapay Zeka Ajanları / AI Agents</span>
+              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
+                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html?section=integration" class="nav-link-item color-blue" role="button">
+              <span class="link-bracket">([E])</span>
+              <span class="link-text">Süreç Entegrasyonu / Process Integration</span>
+              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
+                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="index.html?section=analytics" class="nav-link-item color-yellow" role="button">
+              <span class="link-bracket">([L])</span>
+              <span class="link-text">Operasyonel Analitik / Operational Analytics</span>
+              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
+                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="nav-link-item active" data-action="close-menu" role="button">
+              <span class="link-bracket">(İ)</span>
+              <span class="link-text">İnfografiklerimiz / Our Infographics</span>
+              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
+                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </li>
+        </ul>
+        <div class="menu-footer">
+          <span class="menu-copyright">
+            © 2026 
+            <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+            ROBINK.ME
+          </span>
+          <a href="#" class="menu-sublink">Kullanım Koşulları / Terms of Use</a>
+          <a href="#" class="menu-sublink">Gizlilik Politikası / Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+
+    <main class="main-content">
+      <section id="infographics-gallery" class="infographics-section" style="margin-top: 0; border-top: none; padding-top: 0;">
+        <div class="section-header-block text-center" style="max-width: 100%;">
+          <div class="bilingual-wrapper with-separator">
+            <div class="bilingual-col" style="text-align: left;">
+              <span class="section-tag">[Mimari & Tasarım]</span>
+              <h2 class="section-heading-title">Kurumsal İnfografiklerimiz</h2>
+              <p class="section-heading-desc">Otonom iş süreçlerinin, yapay zeka ajanlarının ve kurumsal ölçeklendirmenin teknik şemalarını detaylıca inceleyin. Büyütmek için şemaların üzerine tıklayın.</p>
+            </div>
+            <div class="bilingual-col" style="text-align: left;">
+              <span class="section-tag">[Architecture & Design]</span>
+              <h2 class="section-heading-title">Our Corporate Infographics</h2>
+              <p class="section-heading-desc">Examine in detail the technical diagrams of autonomous business processes, AI agents, and corporate scaling. Click on the diagrams to zoom in.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="infographics-grid">
+          <div class="infographic-card" data-image="assets/images/2026_Operasyonel_Otonomizasyon_Cagi.jpg">
+            <div class="info-img-wrapper">
+              <img src="assets/images/2026_Operasyonel_Otonomizasyon_Cagi.jpg" alt="2026 Operasyonel Otonomizasyon Çağı" loading="lazy" width="800" height="600">
+              <div class="info-overlay">
+                <span class="zoom-icon">+</span>
+              </div>
+            </div>
+            <div class="info-card-meta">
+              <div class="bilingual-wrapper with-separator" style="gap: 1.5rem;">
+                <div class="bilingual-col">
+                  <span class="lang-indicator">TR</span>
+                  <h4>2026 Operasyonel Otonomizasyon Çağı</h4>
+                  <p>Yapay zeka odaklı iş dünyasında operasyonel dönüşümün ana evreleri ve gelecek vizyonu.</p>
+                </div>
+                <div class="bilingual-col">
+                  <span class="lang-indicator">EN</span>
+                  <h4>2026 Era of Operational Autonomization</h4>
+                  <p>Key phases and future vision of operational transformation in the AI-driven business world.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="infographic-card" data-image="assets/images/2026_Yapay_Zeka_Ajanlari_Rehberi.jpg">
+            <div class="info-img-wrapper">
+              <img src="assets/images/2026_Yapay_Zeka_Ajanlari_Rehberi.jpg" alt="2026 Yapay Zeka Ajanları Rehberi" loading="lazy" width="800" height="600">
+              <div class="info-overlay">
+                <span class="zoom-icon">+</span>
+              </div>
+            </div>
+            <div class="info-card-meta">
+              <div class="bilingual-wrapper with-separator" style="gap: 1.5rem;">
+                <div class="bilingual-col">
+                  <span class="lang-indicator">TR</span>
+                  <h4>2026 Yapay Zeka Ajanları Rehberi</h4>
+                  <p>Şirketlerdeki farklı departmanlara yerleştirilen yapay zeka ajan tipleri ve görev tanımları.</p>
+                </div>
+                <div class="bilingual-col">
+                  <span class="lang-indicator">EN</span>
+                  <h4>2026 AI Agents Guide</h4>
+                  <p>AI agent types and job definitions deployed across different corporate departments.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="infographic-card" data-image="assets/images/Otonom_Yapay_Zeka_Asistan_Ozellikleri.jpg">
+            <div class="info-img-wrapper">
+              <img src="assets/images/Otonom_Yapay_Zeka_Asistan_Ozellikleri.jpg" alt="Otonom Yapay Zeka Asistan Özellikleri" loading="lazy" width="800" height="600">
+              <div class="info-overlay">
+                <span class="zoom-icon">+</span>
+              </div>
+            </div>
+            <div class="info-card-meta">
+              <div class="bilingual-wrapper with-separator" style="gap: 1.5rem;">
+                <div class="bilingual-col">
+                  <span class="lang-indicator">TR</span>
+                  <h4>Otonom Yapay Zeka Asistan Özellikleri</h4>
+                  <p>Bir akıllı ajanın karar alma, entegrasyon ve problem çözme yeteneklerinin mimari dökümü.</p>
+                </div>
+                <div class="bilingual-col">
+                  <span class="lang-indicator">EN</span>
+                  <h4>Autonomous AI Assistant Capabilities</h4>
+                  <p>Architectural breakdown of an intelligent agent's decision-making, integration, and problem-solving skills.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="infographic-card" data-image="assets/images/Otonom_Is_Gucu_Mimari_Semasi.jpg">
+            <div class="info-img-wrapper">
+              <img src="assets/images/Otonom_Is_Gucu_Mimari_Semasi.jpg" alt="Otonom İş Gücü Mimari Şeması" loading="lazy" width="800" height="600">
+              <div class="info-overlay">
+                <span class="zoom-icon">+</span>
+              </div>
+            </div>
+            <div class="info-card-meta">
+              <div class="bilingual-wrapper with-separator" style="gap: 1.5rem;">
+                <div class="bilingual-col">
+                  <span class="lang-indicator">TR</span>
+                  <h4>Otonom İş Gücü Mimari Şeması</h4>
+                  <p>İnsan-yapay zeka ortak iş gücü modelinin altyapı ve çalışma prensipleri mimarisi.</p>
+                </div>
+                <div class="bilingual-col">
+                  <span class="lang-indicator">EN</span>
+                  <h4>Autonomous Workforce Architecture</h4>
+                  <p>Infrastructure and operating principles architecture of the collaborative human-AI workforce model.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="infographic-card" data-image="assets/images/Otonom_Is_Surecleri_Olceklendirme_Semasi.jpg">
+            <div class="info-img-wrapper">
+              <img src="assets/images/Otonom_Is_Surecleri_Olceklendirme_Semasi.jpg" alt="Otonom İş Süreçleri Ölçeklendirme Şeması" loading="lazy" width="800" height="600">
+              <div class="info-overlay">
+                <span class="zoom-icon">+</span>
+              </div>
+            </div>
+            <div class="info-card-meta">
+              <div class="bilingual-wrapper with-separator" style="gap: 1.5rem;">
+                <div class="bilingual-col">
+                  <span class="lang-indicator">TR</span>
+                  <h4>Otonom İş Süreçleri Ölçeklendirme Şeması</h4>
+                  <p>Otonom süreçlerin şirket geneline yayılması ve verimliliğin yatay/dikey ölçeklenme grafikleri.</p>
+                </div>
+                <div class="bilingual-col">
+                  <span class="lang-indicator">EN</span>
+                  <h4>Autonomous Business Processes Scaling</h4>
+                  <p>Diffusion of autonomous processes company-wide and horizontal/vertical scalability curves of efficiency.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="lightbox-modal" class="lightbox-modal">
+      <span class="lightbox-close">&times;</span>
+      <div class="lightbox-content-wrapper">
+        <img id="lightbox-img" src="" alt="Büyütülmüş Şema">
+      </div>
+    </div>
+
+    <footer class="footer-w">
+      <div class="footer-layout">
+        <div class="footer-left">
+          <span class="footer-text">
+            © 2026 
+            <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+            ROBINK.ME. Tüm hakları saklıdır. / All rights reserved.
+          </span>
+          <a href="#" class="footer-link">Kullanım Koşulları / Terms of Use</a>
+          <a href="#" class="footer-link">Gizlilik Politikası / Privacy Policy</a>
+        </div>
+        <div class="footer-right">
+          <a href="https://robink.me" class="footer-attribution">
+            <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="footer-logo-bird">
+            RobinK.me
+          </a>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

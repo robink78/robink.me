@@ -12,21 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
   
   htmlElement.setAttribute('data-theme', initialTheme);
   
-  themeToggle.addEventListener('click', () => {
-    const currentTheme = htmlElement.getAttribute('data-theme');
-    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-    
-    htmlElement.classList.add('theme-transitioning');
-    htmlElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    
-    setTimeout(() => {
-      htmlElement.classList.remove('theme-transitioning');
-    }, 800);
-  });
+  if(themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = htmlElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      
+      htmlElement.classList.add('theme-transitioning');
+      htmlElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+      
+      setTimeout(() => {
+        htmlElement.classList.remove('theme-transitioning');
+      }, 800);
+    });
+  }
 
   /* ==========================================================================
-     2. Preloader Counter Logic
+     2. Preloader Logic (Optimize Edildi - Gerçek Yüklemeye Duyarlı)
      ========================================================================== */
   const preloader = document.getElementById('preloader');
   const percentText = document.getElementById('preloader-percent');
@@ -34,40 +36,51 @@ document.addEventListener('DOMContentLoaded', () => {
   const preloaderBird = document.getElementById('preloader-bird');
   
   let currentPercent = 0;
+  let isLoaded = false;
+
+  window.addEventListener('load', () => {
+    isLoaded = true;
+  });
   
   const updatePreloader = () => {
-    // 1'er 1'er artış yaparak 100 adımda tamamlanmasını sağlıyoruz
-    currentPercent += 1;
+    // Sayfa yüklendiyse sayacı hızlıca 100'e çek
+    if (isLoaded) {
+      currentPercent += 10;
+    } else {
+      currentPercent += 1;
+    }
     
-    percentText.textContent = currentPercent.toString().padStart(2, '0');
+    if (currentPercent > 100) currentPercent = 100;
     
-    // Kuşun şeffaflığını yüklenme yüzdesine göre senkronize olarak arttırıyoruz
+    if (percentText) percentText.textContent = currentPercent.toString().padStart(2, '0');
+    
     if (preloaderBird) {
       preloaderBird.style.opacity = (currentPercent / 100).toString();
     }
     
     if (currentPercent < 100) {
-      // Her adım ortalama 35ms sürer -> 100 adım * 35ms = 3500ms (3.5 Saniye)
-      setTimeout(updatePreloader, Math.floor(Math.random() * 18) + 26);
+      setTimeout(updatePreloader, isLoaded ? 10 : Math.floor(Math.random() * 15) + 20);
     } else {
       setTimeout(() => {
-        preloader.style.opacity = '0';
-        preloader.style.transform = 'translateY(-100%)';
-        
-        appWrapper.style.visibility = 'visible';
-        appWrapper.style.opacity = '1';
-        
+        if(preloader) {
+          preloader.style.opacity = '0';
+          preloader.style.transform = 'translateY(-100%)';
+        }
+        if(appWrapper) {
+          appWrapper.style.visibility = 'visible';
+          appWrapper.style.opacity = '1';
+        }
         setTimeout(() => {
-          preloader.style.display = 'none';
-        }, 1200);
-      }, 500);
+          if(preloader) preloader.style.display = 'none';
+        }, 800);
+      }, 200);
     }
   };
   
-  updatePreloader();
+  if (preloader) updatePreloader();
 
   /* ==========================================================================
-     3. Global 4-City World Clocks Widget
+     3. Global 4-City World Clocks Widget (Bellek Sızıntısı Giderildi)
      ========================================================================== */
   const clockElements = {
     IST: document.getElementById('time-ist'),
@@ -82,23 +95,21 @@ document.addEventListener('DOMContentLoaded', () => {
     NYC: { zone: 'America/New_York', el: clockElements.NYC },
     TYO: { zone: 'Asia/Tokyo', el: clockElements.TYO }
   };
+
+  // Formatter'lar döngü dışında bir kez yaratılır
+  const formatters = {};
+  Object.keys(timezones).forEach(key => {
+    formatters[key] = new Intl.DateTimeFormat('en-GB', {
+      timeZone: timezones[key].zone,
+      hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false
+    });
+  });
   
   const updateClocks = () => {
     const now = new Date();
-    const options = {
-      hour: '2-digit',
-      minute: '2-digit',
-      second: '2-digit',
-      hour12: false
-    };
-    
     Object.keys(timezones).forEach(key => {
-      try {
-        options.timeZone = timezones[key].zone;
-        const formatter = new Intl.DateTimeFormat('en-GB', options);
-        timezones[key].el.textContent = formatter.format(now);
-      } catch (err) {
-        console.error(`Clock error for ${key}:`, err);
+      if (timezones[key].el) {
+        timezones[key].el.textContent = formatters[key].format(now);
       }
     });
   };
@@ -116,220 +127,245 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const manifestoDrawer = document.getElementById('manifesto-drawer');
   const manifestoClose = document.getElementById('manifesto-close');
-  const aboutBtn = document.getElementById('about-btn');
+  const aboutBtnTr = document.getElementById('about-btn-tr');
+  const aboutBtnEn = document.getElementById('about-btn-en');
   const aboutLink = document.querySelector('[data-action="about"]');
   const scrollGalleryLink = document.querySelector('[data-action="scroll-gallery"]');
   
   const navW = document.querySelector('.nav-w');
 
-  // Toggle Fullscreen Menu Drawer
-  menuTrigger.addEventListener('click', () => {
-    const isOpen = menuDrawer.classList.toggle('open');
-    navW.classList.toggle('menu-active', isOpen);
-    if (isOpen) {
-      menuTextOpen.style.display = 'none';
-      menuTextClose.style.display = 'block';
-    } else {
-      menuTextOpen.style.display = 'block';
-      menuTextClose.style.display = 'none';
-    }
-  });
+  if(menuTrigger) {
+    menuTrigger.addEventListener('click', () => {
+      const isOpen = menuDrawer.classList.toggle('open');
+      navW.classList.toggle('menu-active', isOpen);
+      menuTextOpen.style.display = isOpen ? 'none' : 'block';
+      menuTextClose.style.display = isOpen ? 'block' : 'none';
+    });
+  }
   
-  // Slide out Manifesto Panel
   const openManifesto = () => {
-    manifestoDrawer.classList.add('open');
-    menuDrawer.classList.remove('open');
-    navW.classList.remove('menu-active');
-    menuTextOpen.style.display = 'block';
-    menuTextClose.style.display = 'none';
+    if(manifestoDrawer) manifestoDrawer.classList.add('open');
+    if(menuDrawer) menuDrawer.classList.remove('open');
+    if(navW) navW.classList.remove('menu-active');
+    if(menuTextOpen) menuTextOpen.style.display = 'block';
+    if(menuTextClose) menuTextClose.style.display = 'none';
   };
   
-  aboutBtn.addEventListener('click', openManifesto);
-  aboutLink.addEventListener('click', (e) => {
-    e.preventDefault();
-    openManifesto();
-  });
+  if(aboutBtnTr) aboutBtnTr.addEventListener('click', openManifesto);
+  if(aboutBtnEn) aboutBtnEn.addEventListener('click', openManifesto);
+  if(aboutLink) {
+    aboutLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      openManifesto();
+    });
+  }
   
-  manifestoClose.addEventListener('click', () => {
-    manifestoDrawer.classList.remove('open');
-  });
-
-  // Scroll to gallery link in menu
-  scrollGalleryLink.addEventListener('click', () => {
-    menuDrawer.classList.remove('open');
-    navW.classList.remove('menu-active');
-    menuTextOpen.style.display = 'block';
-    menuTextClose.style.display = 'none';
-  });
-  
-  // Close drawers with ESC key
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
+  if(manifestoClose) {
+    manifestoClose.addEventListener('click', () => {
       manifestoDrawer.classList.remove('open');
-      menuDrawer.classList.remove('open');
-      navW.classList.remove('menu-active');
-      menuTextOpen.style.display = 'block';
-      menuTextClose.style.display = 'none';
-    }
-  });
+    });
+  }
+
+  if(scrollGalleryLink) {
+    scrollGalleryLink.addEventListener('click', () => {
+      if(menuDrawer) menuDrawer.classList.remove('open');
+      if(navW) navW.classList.remove('menu-active');
+      if(menuTextOpen) menuTextOpen.style.display = 'block';
+      if(menuTextClose) menuTextClose.style.display = 'none';
+    });
+  }
 
   /* ==========================================================================
      5. 14-Step Presentation Deck & Video Player Logic
      ========================================================================== */
-  
-  // 14 Steps Presentation Metadata
   const stepsData = {
-    1: {
-      title: 'Giriş ve Vizyon',
-      phase: 'workflows',
-      phaseTag: 'Otonom Süreçler',
-      tagClass: 'red-tag',
-      desc: 'Şirketlerin verimsiz manuel operasyonlardan akıllı, otonom iş akışlarına geçiş vizyonunu inceliyoruz. Temel entegrasyon süreçlerinin mimari başlangıç noktası.'
+    1: { 
+      titleTr: 'Giriş ve Vizyon', 
+      titleEn: 'Introduction and Vision', 
+      phase: 'workflows', 
+      phaseTagTr: 'Otonom Süreçler', 
+      phaseTagEn: 'Autonomous Processes', 
+      tagClass: 'red-tag', 
+      descTr: 'Şirketlerin verimsiz manuel operasyonlardan akıllı, otonom iş akışlarına geçiş vizyonunu inceliyoruz.',
+      descEn: 'We explore the vision of companies transitioning from inefficient manual operations to smart, autonomous workflows.'
     },
-    2: {
-      title: 'Geleneksel SOP Analizi',
-      phase: 'workflows',
-      phaseTag: 'Otonom Süreçler',
-      tagClass: 'red-tag',
-      desc: 'Mevcut standart operasyon prosedürlerinin (SOP) analizi yapılarak hangi süreçlerin yapay zekaya devredilebileceği tespit edilir.'
+    2: { 
+      titleTr: 'Geleneksel SOP Analizi', 
+      titleEn: 'Traditional SOP Analysis', 
+      phase: 'workflows', 
+      phaseTagTr: 'Otonom Süreçler', 
+      phaseTagEn: 'Autonomous Processes', 
+      tagClass: 'red-tag', 
+      descTr: 'Mevcut standart operasyon prosedürlerinin (SOP) analizi yapılarak hangi süreçlerin yapay zekaya devredilebileceği tespit edilir.',
+      descEn: 'By analyzing existing standard operating procedures (SOPs), we identify which processes can be delegated to artificial intelligence.'
     },
-    3: {
-      title: 'Otonom Modelleme',
-      phase: 'workflows',
-      phaseTag: 'Otonom Süreçler',
-      tagClass: 'red-tag',
-      desc: 'Süreçlerin yapay zeka ajanlarının anlayabileceği mantıksal karar ağaçlarına ve akış şemalarına dönüştürülmesi aşaması.'
+    3: { 
+      titleTr: 'Otonom Modelleme', 
+      titleEn: 'Autonomous Modeling', 
+      phase: 'workflows', 
+      phaseTagTr: 'Otonom Süreçler', 
+      phaseTagEn: 'Autonomous Processes', 
+      tagClass: 'red-tag', 
+      descTr: 'Süreçlerin yapay zeka ajanlarının anlayabileceği mantıksal karar ağaçlarına ve akış şemalarına dönüştürülmesi aşaması.',
+      descEn: 'The phase of converting processes into logical decision trees and flowcharts that AI agents can comprehend.'
     },
-    4: {
-      title: 'İş Akışı Optimizasyonu',
-      phase: 'workflows',
-      phaseTag: 'Otonom Süreçler',
-      tagClass: 'red-tag',
-      desc: 'Akışların simüle edilmesi, darboğazların tespiti ve en yüksek hız için süreç optimizasyon parametrelerinin ayarlanması.'
+    4: { 
+      titleTr: 'İş Akışı Optimizasyonu', 
+      titleEn: 'Workflow Optimization', 
+      phase: 'workflows', 
+      phaseTagTr: 'Otonom Süreçler', 
+      phaseTagEn: 'Autonomous Processes', 
+      tagClass: 'red-tag', 
+      descTr: 'Akışların simüle edilmesi, darboğazların tespiti ve en yüksek hız için süreç optimizasyon parametrelerinin ayarlanması.',
+      descEn: 'Simulation of workflows, detection of bottlenecks, and adjustment of process optimization parameters for maximum speed.'
     },
-    5: {
-      title: 'Yapay Zeka Ajan Seçimi',
-      phase: 'agents',
-      phaseTag: 'Yapay Zeka Ajanları',
-      tagClass: 'green-tag',
-      desc: 'Departman bazlı ihtiyaçlar için en uygun bilişsel yeteneklere sahip akıllı yapay zeka ajan modellerinin belirlenmesi.'
+    5: { 
+      titleTr: 'Yapay Zeka Ajan Seçimi', 
+      titleEn: 'AI Agent Selection', 
+      phase: 'agents', 
+      phaseTagTr: 'Yapay Zeka Ajanları', 
+      phaseTagEn: 'AI Agents', 
+      tagClass: 'green-tag', 
+      descTr: 'Departman bazlı ihtiyaçlar için en uygun bilişsel yeteneklere sahip akıllı yapay zeka ajan modellerinin belirlenmesi.',
+      descEn: 'Determination of the intelligent AI agent models with the most suitable cognitive capabilities for department-based needs.'
     },
-    6: {
-      title: 'Bilişsel Görev Dağılımı',
-      phase: 'agents',
-      phaseTag: 'Yapay Zeka Ajanları',
-      tagClass: 'green-tag',
-      desc: 'Belirli süreç sorumluluklarının ilgili yapay zeka asistanlarına atanması ve karar yetki sınırlarının tanımlanması.'
+    6: { 
+      titleTr: 'Bilişsel Görev Dağılımı', 
+      titleEn: 'Cognitive Task Allocation', 
+      phase: 'agents', 
+      phaseTagTr: 'Yapay Zeka Ajanları', 
+      phaseTagEn: 'AI Agents', 
+      tagClass: 'green-tag', 
+      descTr: 'Belirli süreç sorumluluklarının ilgili yapay zeka asistanlarına atanması ve karar yetki sınırlarının tanımlanması.',
+      descEn: 'Assignment of specific process responsibilities to relevant AI assistants and definition of decision-making authority boundaries.'
     },
-    7: {
-      title: 'Ajanlar Arası İletişim',
-      phase: 'agents',
-      phaseTag: 'Yapay Zeka Ajanları',
-      tagClass: 'green-tag',
-      desc: 'Farklı otonom ajanların birbiriyle veri paylaşabilmesi ve ortaklaşa iş yürütebilmesi için iletişim protokollerinin kurulması.'
+    7: { 
+      titleTr: 'Ajanlar Arası İletişim', 
+      titleEn: 'Inter-Agent Communication', 
+      phase: 'agents', 
+      phaseTagTr: 'Yapay Zeka Ajanları', 
+      phaseTagEn: 'AI Agents', 
+      tagClass: 'green-tag', 
+      descTr: 'Farklı otonom ajanların birbiriyle veri paylaşabilmesi ve ortaklaşa iş yürütebilmesi için iletişim protokollerinin kurulması.',
+      descEn: 'Establishing communication protocols for different autonomous agents to share data and collaborate on tasks.'
     },
-    8: {
-      title: 'İş Gücü Entegrasyonu',
-      phase: 'agents',
-      phaseTag: 'Yapay Zeka Ajanları',
-      tagClass: 'green-tag',
-      desc: 'Otonom yapay zeka ajan iş gücü ile insan çalışanlar arasındaki onay mekanizmalarının ve ortak çalışma arayüzlerinin entegre edilmesi.'
+    8: { 
+      titleTr: 'İş Gücü Entegrasyonu', 
+      titleEn: 'Workforce Integration', 
+      phase: 'agents', 
+      phaseTagTr: 'Yapay Zeka Ajanları', 
+      phaseTagEn: 'AI Agents', 
+      tagClass: 'green-tag', 
+      descTr: 'Otonom yapay zeka ajan iş gücü ile insan çalışanlar arasındaki onay mekanizmalarının ve ortak çalışma arayüzlerinin entegre edilmesi.',
+      descEn: 'Integration of approval mechanisms and collaboration interfaces between the autonomous AI agent workforce and human employees.'
     },
-    9: {
-      title: 'API ve Bağlantı Altyapısı',
-      phase: 'integration',
-      phaseTag: 'Süreç Entegrasyonu',
-      tagClass: 'blue-tag',
-      desc: 'Ajanların kurumsal yazılımlara (ERP, CRM, Slack) erişebilmesi için gerekli güvenli API bağlantı katmanlarının oluşturulması.'
+    9: { 
+      titleTr: 'API ve Bağlantı Altyapısı', 
+      titleEn: 'API & Connectivity Infrastructure', 
+      phase: 'integration', 
+      phaseTagTr: 'Süreç Entegrasyonu', 
+      phaseTagEn: 'Process Integration', 
+      tagClass: 'blue-tag', 
+      descTr: 'Ajanların kurumsal yazılımlara erişebilmesi için gerekli güvenli API bağlantı katmanlarının oluşturulması.',
+      descEn: 'Creation of the secure API connection layers required for agents to access corporate software.'
     },
-    10: {
-      title: 'Veri Ambarı Entegrasyonu',
-      phase: 'integration',
-      phaseTag: 'Süreç Entegrasyonu',
-      tagClass: 'blue-tag',
-      desc: 'Şirket içi veri ambarları ve bulut veritabanlarının, otonom ajanların anlık sorgular yapabilmesi için güvenli bir şekilde bağlanması.'
+    10: { 
+      titleTr: 'Veri Ambarı Entegrasyonu', 
+      titleEn: 'Data Warehouse Integration', 
+      phase: 'integration', 
+      phaseTagTr: 'Süreç Entegrasyonu', 
+      phaseTagEn: 'Process Integration', 
+      tagClass: 'blue-tag', 
+      descTr: 'Şirket içi veri ambarları ve bulut veritabanlarının, otonom ajanların anlık sorgular yapabilmesi için güvenli bir şekilde bağlanması.',
+      descEn: 'Secure connection of internal data warehouses and cloud databases for autonomous agents to perform real-time queries.'
     },
-    11: {
-      title: 'Güvenlik ve İzin Protokolleri',
-      phase: 'integration',
-      phaseTag: 'Süreç Entegrasyonu',
-      tagClass: 'blue-tag',
-      desc: 'Veri sızıntılarını önlemek amacıyla ajanların yetki alanlarının kısıtlanması, şifreleme ve kurumsal uyumluluk kurallarının uygulanması.'
+    11: { 
+      titleTr: 'Güvenlik ve İzin Protokolleri', 
+      titleEn: 'Security & Permission Protocols', 
+      phase: 'integration', 
+      phaseTagTr: 'Süreç Entegrasyonu', 
+      phaseTagEn: 'Process Integration', 
+      tagClass: 'blue-tag', 
+      descTr: 'Veri sızıntılarını önlemek amacıyla ajanların yetki alanlarının kısıtlanması, şifreleme ve kurumsal uyumluluk kurallarının uygulanması.',
+      descEn: 'Restricting agent authorization boundaries, encryption, and enforcing corporate compliance rules to prevent data leaks.'
     },
-    12: {
-      title: 'Verim ve Metrik İzleme',
-      phase: 'analytics',
-      phaseTag: 'Operasyonel Analitik',
-      tagClass: 'yellow-tag',
-      desc: 'Otonom hale gelen süreçlerin hız, maliyet ve doğruluk oranlarının anlık olarak göstergelerle takip edilmesi.'
+    12: { 
+      titleTr: 'Verim ve Metrik İzleme', 
+      titleEn: 'Performance & Metric Monitoring', 
+      phase: 'analytics', 
+      phaseTagTr: 'Operasyonel Analitik', 
+      phaseTagEn: 'Operational Analytics', 
+      tagClass: 'yellow-tag', 
+      descTr: 'Otonom hale gelen süreçlerin hız, maliyet ve doğruluk oranlarının anlık olarak göstergelerle takip edilmesi.',
+      descEn: 'Real-time tracking of the speed, cost, and accuracy rates of automated processes through indicators.'
     },
-    13: {
-      title: 'Hata Yönetimi ve Loglama',
-      phase: 'analytics',
-      phaseTag: 'Operasyonel Analitik',
-      tagClass: 'yellow-tag',
-      desc: 'Süreçlerde yaşanabilecek aksaklıkların otomatik tespit edilip loglanması ve insan yöneticilere anında bildirim gönderilmesi altyapısı.'
+    13: { 
+      titleTr: 'Hata Yönetimi ve Loglama', 
+      titleEn: 'Error Management & Logging', 
+      phase: 'analytics', 
+      phaseTagTr: 'Operasyonel Analitik', 
+      phaseTagEn: 'Operational Analytics', 
+      tagClass: 'yellow-tag', 
+      descTr: 'Süreçlerde yaşanabilecek aksaklıkların otomatik tespit edilip loglanması ve insan yöneticilere anında bildirim gönderilmesi altyapısı.',
+      descEn: 'Infrastructure for automatically detecting and logging issues in processes and sending instant notifications to human managers.'
     },
-    14: {
-      title: 'Sürekli Otonom Gelişim',
-      phase: 'analytics',
-      phaseTag: 'Operasyonel Analitik',
-      tagClass: 'yellow-tag',
-      desc: 'Analitik veriler doğrultusunda sistemin kendi kendini güncelleyerek zamanla daha verimli kararlar almasını sağlayan optimizasyon döngüsü.'
+    14: { 
+      titleTr: 'Sürekli Otonom Gelişim', 
+      titleEn: 'Continuous Autonomous Evolution', 
+      phase: 'analytics', 
+      phaseTagTr: 'Operasyonel Analitik', 
+      phaseTagEn: 'Operational Analytics', 
+      tagClass: 'yellow-tag', 
+      descTr: 'Analitik veriler doğrultusunda sistemin kendi kendini güncelleyerek zamanla daha verimli kararlar almasını sağlayan optimizasyon döngüsü.',
+      descEn: 'An optimization cycle that allows the system to self-update in line with analytical data to make more efficient decisions over time.'
     }
   };
 
   const stepNavButtons = document.querySelectorAll('.step-nav-btn');
-  const deckVideo = document.getElementById('deck-video');
-  const videoSource = document.getElementById('video-source');
-  const deckTitle = document.getElementById('deck-title');
-  const deckDesc = document.getElementById('deck-desc');
-  const deckPhaseTag = document.getElementById('deck-phase-tag');
-  const deckStepTag = document.getElementById('deck-step-tag');
+  const deckGif = document.getElementById('deck-gif');
   
-  // Select and load a specific presentation step
+  const deckTitleTr = document.getElementById('deck-title-tr');
+  const deckTitleEn = document.getElementById('deck-title-en');
+  const deckDescTr = document.getElementById('deck-desc-tr');
+  const deckDescEn = document.getElementById('deck-desc-en');
+  const deckPhaseTagTr = document.getElementById('deck-phase-tag-tr');
+  const deckPhaseTagEn = document.getElementById('deck-phase-tag-en');
+  const deckStepTagTr = document.getElementById('deck-step-tag-tr');
+  const deckStepTagEn = document.getElementById('deck-step-tag-en');
+  
   const loadStep = (stepNumber) => {
     const data = stepsData[stepNumber];
     if (!data) return;
     
-    // Update active nav button
     stepNavButtons.forEach(btn => {
-      if (btn.getAttribute('data-step') === stepNumber.toString()) {
-        btn.classList.add('active');
-      } else {
-        btn.classList.remove('active');
-      }
+      btn.classList.toggle('active', btn.getAttribute('data-step') === stepNumber.toString());
     });
     
-    // Update text content
-    deckTitle.textContent = data.title;
-    deckDesc.textContent = data.desc;
-    deckStepTag.textContent = `Adım ${stepNumber.toString().padStart(2, '0')} / 14`;
+    if(deckTitleTr) deckTitleTr.textContent = data.titleTr;
+    if(deckTitleEn) deckTitleEn.textContent = data.titleEn;
+    if(deckDescTr) deckDescTr.textContent = data.descTr;
+    if(deckDescEn) deckDescEn.textContent = data.descEn;
     
-    // Update Phase Tag
-    deckPhaseTag.textContent = data.phaseTag;
-    deckPhaseTag.className = `deck-phase-tag ${data.tagClass}`;
+    if(deckStepTagTr) deckStepTagTr.textContent = `Adım ${stepNumber.toString().padStart(2, '0')} / 14`;
+    if(deckStepTagEn) deckStepTagEn.textContent = `Step ${stepNumber.toString().padStart(2, '0')} / 14`;
     
-    // Update Video elements
-    const videoPath = `assets/videos/${stepNumber}-sayfa.mp4`;
-    const posterPath = `assets/images/page${stepNumber}_1_Im1.jpg`;
+    if(deckPhaseTagTr) {
+      deckPhaseTagTr.textContent = data.phaseTagTr;
+      deckPhaseTagTr.className = `deck-phase-tag ${data.tagClass}`;
+    }
+    if(deckPhaseTagEn) {
+      deckPhaseTagEn.textContent = data.phaseTagEn;
+      deckPhaseTagEn.className = `deck-phase-tag ${data.tagClass}`;
+    }
     
-    deckVideo.setAttribute('poster', posterPath);
-    videoSource.setAttribute('src', videoPath);
-    
-    // Reload and play video
-    deckVideo.load();
-    deckVideo.play().catch(e => {
-      // Auto-play might be blocked by browser policies if not muted, this catch handles it safely.
-      console.log('Video autoplay interrupted or requires mute:', e);
-    });
+    if(deckGif) {
+      deckGif.setAttribute('src', `assets/videos/${stepNumber}-sayfa.gif`);
+    }
   };
   
-  // Set up step navigation click listeners
   stepNavButtons.forEach(btn => {
     btn.addEventListener('click', () => {
-      const step = parseInt(btn.getAttribute('data-step'));
-      loadStep(step);
+      loadStep(parseInt(btn.getAttribute('data-step')));
     });
   });
 
@@ -338,51 +374,61 @@ document.addEventListener('DOMContentLoaded', () => {
      ========================================================================== */
   const flywheelSegments = document.querySelectorAll('.flywheel-segment');
   const flywheelInfoCard = document.getElementById('flywheel-info-card');
-  const infoCardTitle = document.getElementById('info-card-title');
-  const infoCardDesc = document.getElementById('info-card-desc');
+  
+  const infoCardTitleTr = document.getElementById('info-card-title-tr');
+  const infoCardTitleEn = document.getElementById('info-card-title-en');
+  const infoCardDescTr = document.getElementById('info-card-desc-tr');
+  const infoCardDescEn = document.getElementById('info-card-desc-en');
   
   const flywheelData = {
-    workflows: {
-      title: 'OTONOM SÜREÇLER',
-      desc: 'İş akışlarının analiz edilmesi ve otonom SOP\'lar haline dönüştürülmesi (Adım 1 - 4).',
-      colorClass: 'workflows',
-      steps: [1, 2, 3, 4]
+    workflows: { 
+      titleTr: 'OTONOM SÜREÇLER', 
+      titleEn: 'AUTONOMOUS PROCESSES', 
+      descTr: 'İş akışlarının analiz edilmesi ve otonom SOP\'lar haline dönüştürülmesi (Adım 1 - 4).', 
+      descEn: 'Analysis of workflows and conversion into autonomous SOPs (Steps 1 - 4).',
+      colorClass: 'workflows', 
+      steps: [1, 2, 3, 4] 
     },
-    agents: {
-      title: 'YAPAY ZEKA AJANLARI',
-      desc: 'Bilişsel iş yükünü üstlenen, akıl yürütebilen akıllı yapay zeka asistanları (Adım 5 - 8).',
-      colorClass: 'agents',
-      steps: [5, 6, 7, 8]
+    agents: { 
+      titleTr: 'YAPAY ZEKA AJANLARI', 
+      titleEn: 'AI AGENTS', 
+      descTr: 'Bilişsel iş yükünü üstlenen, akıl yürütebilen akıllı yapay zeka asistanları (Adım 5 - 8).', 
+      descEn: 'Intelligent AI assistants that take on cognitive workloads and possess reasoning capabilities (Steps 5 - 8).',
+      colorClass: 'agents', 
+      steps: [5, 6, 7, 8] 
     },
-    integration: {
-      title: 'SÜREÇ ENTEGRASYONU',
-      desc: 'Farklı yazılım, API ve kurumsal sistemlerin kusursuz koordinasyonu (Adım 9 - 11).',
-      colorClass: 'integration',
-      steps: [9, 10, 11]
+    integration: { 
+      titleTr: 'SÜREÇ ENTEGRASYONU', 
+      titleEn: 'PROCESS INTEGRATION', 
+      descTr: 'Farklı yazılım, API ve kurumsal sistemlerin kusursuz koordinasyonu (Adım 9 - 11).', 
+      descEn: 'Seamless coordination of different software, APIs, and corporate systems (Steps 9 - 11).',
+      colorClass: 'integration', 
+      steps: [9, 10, 11] 
     },
-    analytics: {
-      title: 'OPERASYONEL ANALİTİK',
-      desc: 'Verimliliği anlık olarak ölçen ve sürekli optimize eden veri motoru (Adım 12 - 14).',
-      colorClass: 'analytics',
-      steps: [12, 13, 14]
+    analytics: { 
+      titleTr: 'OPERASYONEL ANALİTİK', 
+      titleEn: 'OPERATIONAL ANALYTICS', 
+      descTr: 'Verimliliği anlık olarak ölçen ve sürekli optimize eden veri motoru (Adım 12 - 14).', 
+      descEn: 'Data engine that measures efficiency in real-time and continuously optimizes (Steps 12 - 14).',
+      colorClass: 'analytics', 
+      steps: [12, 13, 14] 
     }
   };
   
   const resetFlywheelInfo = () => {
-    infoCardTitle.textContent = 'OTONOM EKOSİSTEM';
-    infoCardDesc.textContent = 'Çarktaki bölümlere tıklayarak veya üzerine gelerek kurumsal otonom süreçleri keşfedin. Tıkladığınızda ilgili aşama sunumları listelenecektir.';
-    flywheelInfoCard.className = 'flywheel-info-card';
+    if(infoCardTitleTr) infoCardTitleTr.textContent = 'OTONOM EKOSİSTEM';
+    if(infoCardTitleEn) infoCardTitleEn.textContent = 'AUTONOMOUS ECOSYSTEM';
+    if(infoCardDescTr) infoCardDescTr.textContent = 'Çarktaki bölümlere tıklayarak veya üzerine gelerek kurumsal otonom süreçleri keşfedin. Tıkladığınızda ilgili aşama sunumları listelenecektir.';
+    if(infoCardDescEn) infoCardDescEn.textContent = 'Discover corporate autonomous processes by clicking or hovering on the wheel segments. Clicking will list the related phase presentations.';
+    if(flywheelInfoCard) flywheelInfoCard.className = 'flywheel-info-card';
   };
   
-  // Clear step filtering and show all 14 steps
   const clearStepFilters = () => {
-    stepNavButtons.forEach(btn => {
-      btn.classList.remove('filtered-out');
-    });
+    stepNavButtons.forEach(btn => btn.classList.remove('filtered-out'));
   };
   
-  // Apply step filtering based on flywheel selection
   const applyStepFilters = (phaseKey) => {
+    if(!flywheelData[phaseKey]) return;
     const allowedSteps = flywheelData[phaseKey].steps;
     
     stepNavButtons.forEach(btn => {
@@ -393,8 +439,6 @@ document.addEventListener('DOMContentLoaded', () => {
         btn.classList.add('filtered-out');
       }
     });
-    
-    // Automatically load the first step in this filtered phase
     loadStep(allowedSteps[0]);
   };
   
@@ -402,56 +446,47 @@ document.addEventListener('DOMContentLoaded', () => {
     const phaseKey = segment.getAttribute('data-segment');
     const data = flywheelData[phaseKey];
     
-    // Hover Enter
     segment.addEventListener('mouseenter', () => {
-      if (data) {
-        infoCardTitle.textContent = data.title;
-        infoCardDesc.textContent = data.desc;
-        flywheelInfoCard.className = 'flywheel-info-card';
-        flywheelInfoCard.classList.add(data.colorClass);
+      if (data && flywheelInfoCard) {
+        if(infoCardTitleTr) infoCardTitleTr.textContent = data.titleTr;
+        if(infoCardTitleEn) infoCardTitleEn.textContent = data.titleEn;
+        if(infoCardDescTr) infoCardDescTr.textContent = data.descTr;
+        if(infoCardDescEn) infoCardDescEn.textContent = data.descEn;
+        flywheelInfoCard.className = `flywheel-info-card ${data.colorClass}`;
       }
     });
     
-    // Hover Leave
     segment.addEventListener('mouseleave', () => {
       const activeSeg = document.querySelector('.flywheel-segment.active');
       if (activeSeg) {
-        const activeKey = activeSeg.getAttribute('data-segment');
-        const activeData = flywheelData[activeKey];
+        const activeData = flywheelData[activeSeg.getAttribute('data-segment')];
         if (activeData) {
-          infoCardTitle.textContent = activeData.title;
-          infoCardDesc.textContent = activeData.desc;
-          flywheelInfoCard.className = 'flywheel-info-card';
-          flywheelInfoCard.classList.add(activeData.colorClass);
+          if(infoCardTitleTr) infoCardTitleTr.textContent = activeData.titleTr;
+          if(infoCardTitleEn) infoCardTitleEn.textContent = activeData.titleEn;
+          if(infoCardDescTr) infoCardDescTr.textContent = activeData.descTr;
+          if(infoCardDescEn) infoCardDescEn.textContent = activeData.descEn;
+          flywheelInfoCard.className = `flywheel-info-card ${activeData.colorClass}`;
         }
       } else {
         resetFlywheelInfo();
       }
     });
     
-    // Click to filter steps
     segment.addEventListener('click', () => {
       const isActive = segment.classList.contains('active');
-      
-      // Clear previous active states
       flywheelSegments.forEach(s => s.classList.remove('active'));
       
       if (!isActive) {
         segment.classList.add('active');
         applyStepFilters(phaseKey);
-        
-        // Scroll down to the presentation deck section smoothly
         const deckSection = document.getElementById('presentation-deck');
-        if (deckSection) {
-          deckSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (deckSection) deckSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
         clearStepFilters();
         resetFlywheelInfo();
       }
     });
     
-    // Keyboard accessibility
     segment.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
@@ -460,43 +495,40 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Connect drawer link clicks directly to flywheel trigger & scrolling
   const drawerSectionLinks = document.querySelectorAll('.nav-links-list a[data-section]');
   drawerSectionLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
       const sectionName = link.getAttribute('data-section');
       
-      menuDrawer.classList.remove('open');
-      navW.classList.remove('menu-active');
-      menuTextOpen.style.display = 'block';
-      menuTextClose.style.display = 'none';
+      if(menuDrawer) menuDrawer.classList.remove('open');
+      if(navW) navW.classList.remove('menu-active');
+      if(menuTextOpen) menuTextOpen.style.display = 'block';
+      if(menuTextClose) menuTextClose.style.display = 'none';
       
       const matchingSegment = document.querySelector(`.flywheel-segment[data-segment="${sectionName}"]`);
       if (matchingSegment) {
-        // Trigger active class
         flywheelSegments.forEach(s => s.classList.remove('active'));
         matchingSegment.classList.add('active');
         
-        // Info card state
         const data = flywheelData[sectionName];
-        infoCardTitle.textContent = data.title;
-        infoCardDesc.textContent = data.desc;
-        flywheelInfoCard.className = 'flywheel-info-card';
-        flywheelInfoCard.classList.add(data.colorClass);
+        if(data && flywheelInfoCard) {
+          if(infoCardTitleTr) infoCardTitleTr.textContent = data.titleTr;
+          if(infoCardTitleEn) infoCardTitleEn.textContent = data.titleEn;
+          if(infoCardDescTr) infoCardDescTr.textContent = data.descTr;
+          if(infoCardDescEn) infoCardDescEn.textContent = data.descEn;
+          flywheelInfoCard.className = `flywheel-info-card ${data.colorClass}`;
+        }
         
         applyStepFilters(sectionName);
-        
         const deckSection = document.getElementById('presentation-deck');
-        if (deckSection) {
-          deckSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        if (deckSection) deckSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     });
   });
 
   /* ==========================================================================
-     7. Infographics Lightbox Zoom Gallery Logic
+     7. Infographics Lightbox Zoom Gallery Logic & Global Keydown
      ========================================================================== */
   const infographicCards = document.querySelectorAll('.infographic-card');
   const lightboxModal = document.getElementById('lightbox-modal');
@@ -506,7 +538,7 @@ document.addEventListener('DOMContentLoaded', () => {
   infographicCards.forEach(card => {
     card.addEventListener('click', () => {
       const imgPath = card.getAttribute('data-image');
-      if (imgPath) {
+      if (imgPath && lightboxImg && lightboxModal) {
         lightboxImg.setAttribute('src', imgPath);
         lightboxModal.classList.add('show');
       }
@@ -514,22 +546,63 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   const closeLightbox = () => {
-    lightboxModal.classList.remove('show');
+    if(lightboxModal) lightboxModal.classList.remove('show');
   };
   
-  lightboxClose.addEventListener('click', closeLightbox);
+  if(lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
   
-  // Close lightbox clicking on background
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal || e.target.classList.contains('lightbox-content-wrapper')) {
-      closeLightbox();
-    }
-  });
+  if(lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal || e.target.classList.contains('lightbox-content-wrapper')) {
+        closeLightbox();
+      }
+    });
+  }
   
-  // Close lightbox on escape key
+  // Tek bir Global ESC dinleyicisi tüm açık pencereleri (menü, manifesto, lightbox) kapatır
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && lightboxModal.classList.contains('show')) {
-      closeLightbox();
+    if (e.key === 'Escape') {
+      if (lightboxModal && lightboxModal.classList.contains('show')) closeLightbox();
+      if (manifestoDrawer) manifestoDrawer.classList.remove('open');
+      if (menuDrawer) menuDrawer.classList.remove('open');
+      if (navW) navW.classList.remove('menu-active');
+      if (menuTextOpen) menuTextOpen.style.display = 'block';
+      if (menuTextClose) menuTextClose.style.display = 'none';
     }
   });
+
+  /* ==========================================================================
+     8. Subpage Navigation Helpers (Cross-Page Links & URL Params)
+     ========================================================================== */
+  const closeMenuLink = document.querySelector('[data-action="close-menu"]');
+  if (closeMenuLink) {
+    closeMenuLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      if(menuDrawer) menuDrawer.classList.remove('open');
+      if(navW) navW.classList.remove('menu-active');
+      if(menuTextOpen) menuTextOpen.style.display = 'block';
+      if(menuTextClose) menuTextClose.style.display = 'none';
+    });
+  }
+
+  // URL search parameter handler for landing page anchors
+  const urlParams = new URLSearchParams(window.location.search);
+  const sectionParam = urlParams.get('section');
+  const actionParam = urlParams.get('action');
+
+  if (actionParam === 'about') {
+    // Open manifesto after preloader completes (approx 1200ms)
+    setTimeout(() => {
+      openManifesto();
+    }, 1200);
+  } else if (sectionParam) {
+    // Click active segment after preloader completes
+    setTimeout(() => {
+      const matchingSegment = document.querySelector(`.flywheel-segment[data-segment="${sectionParam}"]`);
+      if (matchingSegment) {
+        matchingSegment.click();
+      }
+    }, 1200);
+  }
+
 });
