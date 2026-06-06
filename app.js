@@ -132,6 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const aboutLink = document.querySelector('[data-action="about"]');
   const scrollGalleryLink = document.querySelector('[data-action="scroll-gallery"]');
   
+  const termsDrawer = document.getElementById('terms-drawer');
+  const termsClose = document.getElementById('terms-close');
+  const termsTriggers = document.querySelectorAll('.js-terms-trigger');
+  
+  const privacyDrawer = document.getElementById('privacy-drawer');
+  const privacyClose = document.getElementById('privacy-close');
+  const privacyTriggers = document.querySelectorAll('.js-privacy-trigger');
+  
   const navW = document.querySelector('.nav-w');
 
   if(menuTrigger) {
@@ -145,6 +153,22 @@ document.addEventListener('DOMContentLoaded', () => {
   
   const openManifesto = () => {
     if(manifestoDrawer) manifestoDrawer.classList.add('open');
+    if(menuDrawer) menuDrawer.classList.remove('open');
+    if(navW) navW.classList.remove('menu-active');
+    if(menuTextOpen) menuTextOpen.style.display = 'block';
+    if(menuTextClose) menuTextClose.style.display = 'none';
+  };
+
+  const openTerms = () => {
+    if(termsDrawer) termsDrawer.classList.add('open');
+    if(menuDrawer) menuDrawer.classList.remove('open');
+    if(navW) navW.classList.remove('menu-active');
+    if(menuTextOpen) menuTextOpen.style.display = 'block';
+    if(menuTextClose) menuTextClose.style.display = 'none';
+  };
+
+  const openPrivacy = () => {
+    if(privacyDrawer) privacyDrawer.classList.add('open');
     if(menuDrawer) menuDrawer.classList.remove('open');
     if(navW) navW.classList.remove('menu-active');
     if(menuTextOpen) menuTextOpen.style.display = 'block';
@@ -166,6 +190,65 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  termsTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openTerms();
+    });
+  });
+
+  if(termsClose) {
+    termsClose.addEventListener('click', () => {
+      termsDrawer.classList.remove('open');
+    });
+  }
+
+  privacyTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      openPrivacy();
+    });
+  });
+
+  if(privacyClose) {
+    privacyClose.addEventListener('click', () => {
+      privacyDrawer.classList.remove('open');
+    });
+  }
+
+  // Close manifesto, terms, or privacy when clicking outside the drawer
+  document.addEventListener('click', (e) => {
+    if (manifestoDrawer && manifestoDrawer.classList.contains('open')) {
+      const clickedInside = manifestoDrawer.contains(e.target);
+      const clickedTrigger = (aboutBtnTr && aboutBtnTr.contains(e.target)) ||
+                             (aboutBtnEn && aboutBtnEn.contains(e.target)) ||
+                             (aboutLink && aboutLink.contains(e.target));
+      if (!clickedInside && !clickedTrigger) {
+        manifestoDrawer.classList.remove('open');
+      }
+    }
+    if (termsDrawer && termsDrawer.classList.contains('open')) {
+      const clickedInside = termsDrawer.contains(e.target);
+      let clickedTrigger = false;
+      termsTriggers.forEach(trig => {
+        if (trig.contains(e.target)) clickedTrigger = true;
+      });
+      if (!clickedInside && !clickedTrigger) {
+        termsDrawer.classList.remove('open');
+      }
+    }
+    if (privacyDrawer && privacyDrawer.classList.contains('open')) {
+      const clickedInside = privacyDrawer.contains(e.target);
+      let clickedTrigger = false;
+      privacyTriggers.forEach(trig => {
+        if (trig.contains(e.target)) clickedTrigger = true;
+      });
+      if (!clickedInside && !clickedTrigger) {
+        privacyDrawer.classList.remove('open');
+      }
+    }
+  });
+
   if(scrollGalleryLink) {
     scrollGalleryLink.addEventListener('click', () => {
       if(menuDrawer) menuDrawer.classList.remove('open');
@@ -186,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagTr: 'Otonom Süreçler', 
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
-      descTr: 'Şirketlerin verimsiz manuel operasyonlardan akıllı, otonom iş akışlarına geçiş vizyonunu inceliyoruz.',
+      descTr: 'Şirketlerin verimsiz manuel operasyonlardan akıllı, otonom iş akışlarına geçiş vizyonunun incelenmesi.',
       descEn: 'We explore the vision of companies transitioning from inefficient manual operations to smart, autonomous workflows.'
     },
     2: { 
@@ -196,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagTr: 'Otonom Süreçler', 
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
-      descTr: 'Mevcut standart operasyon prosedürlerinin (SOP) analizi yapılarak hangi süreçlerin yapay zekaya devredilebileceği tespit edilir.',
+      descTr: 'Mevcut standart operasyon prosedürlerinin (SOP) analizi yapılarak hangi süreçlerin yapay zekaya devredilebileceğinin tespit edilmesi.',
       descEn: 'By analyzing existing standard operating procedures (SOPs), we identify which processes can be delegated to artificial intelligence.'
     },
     3: { 
@@ -206,7 +289,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagTr: 'Otonom Süreçler', 
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
-      descTr: 'Süreçlerin yapay zeka ajanlarının anlayabileceği mantıksal karar ağaçlarına ve akış şemalarına dönüştürülmesi aşaması.',
+      descTr: 'Süreçlerin, yapay zeka ajanlarının anlayabileceği mantıksal karar ağaçlarına ve akış şemalarına dönüştürülmesi aşaması.',
       descEn: 'The phase of converting processes into logical decision trees and flowcharts that AI agents can comprehend.'
     },
     4: { 
@@ -306,7 +389,7 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagTr: 'Operasyonel Analitik', 
       phaseTagEn: 'Operational Analytics', 
       tagClass: 'yellow-tag', 
-      descTr: 'Süreçlerde yaşanabilecek aksaklıkların otomatik tespit edilip loglanması ve insan yöneticilere anında bildirim gönderilmesi altyapısı.',
+      descTr: 'Süreçlerde yaşanabilecek aksaklıkların otomatik olarak tespit edilip loglanması ve insan yöneticilere anında bildirim gönderilmesi altyapısı.',
       descEn: 'Infrastructure for automatically detecting and logging issues in processes and sending instant notifications to human managers.'
     },
     14: { 
@@ -384,7 +467,7 @@ document.addEventListener('DOMContentLoaded', () => {
     workflows: { 
       titleTr: 'OTONOM SÜREÇLER', 
       titleEn: 'AUTONOMOUS PROCESSES', 
-      descTr: 'İş akışlarının analiz edilmesi ve otonom SOP\'lar haline dönüştürülmesi (Adım 1 - 4).', 
+      descTr: 'İş akışlarının analiz edilip otonom SOP\'lara dönüştürülmesi (Adım 1 - 4).', 
       descEn: 'Analysis of workflows and conversion into autonomous SOPs (Steps 1 - 4).',
       colorClass: 'workflows', 
       steps: [1, 2, 3, 4] 
@@ -553,7 +636,7 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if(lightboxModal) {
     lightboxModal.addEventListener('click', (e) => {
-      if (e.target === lightboxModal || e.target.classList.contains('lightbox-content-wrapper')) {
+      if (e.target === lightboxModal || e.target.classList.contains('lightbox-content-wrapper') || e.target.id === 'lightbox-img') {
         closeLightbox();
       }
     });
@@ -564,6 +647,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.key === 'Escape') {
       if (lightboxModal && lightboxModal.classList.contains('show')) closeLightbox();
       if (manifestoDrawer) manifestoDrawer.classList.remove('open');
+      if (termsDrawer) termsDrawer.classList.remove('open');
+      if (privacyDrawer) privacyDrawer.classList.remove('open');
       if (menuDrawer) menuDrawer.classList.remove('open');
       if (navW) navW.classList.remove('menu-active');
       if (menuTextOpen) menuTextOpen.style.display = 'block';
