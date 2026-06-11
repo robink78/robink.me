@@ -898,12 +898,50 @@ document.addEventListener('DOMContentLoaded', () => {
   if (demoForm) {
     demoForm.addEventListener('submit', (e) => {
       e.preventDefault();
-      // Mock request simulation with smooth UI transitions
-      demoForm.style.display = 'none';
-      if (demoSuccessMsg) demoSuccessMsg.style.display = 'block';
-      setTimeout(() => {
-        closeDemoModal();
-      }, 3500);
+      
+      const submitBtn = demoForm.querySelector('.form-submit-btn');
+      const submitBtnText = submitBtn ? submitBtn.querySelector('.btn-text') : null;
+      const originalText = submitBtnText ? submitBtnText.textContent : 'Talebi Gönder / Submit Request';
+      
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtnText) submitBtnText.textContent = 'Gönderiliyor... / Sending...';
+      
+      const formData = new FormData(demoForm);
+      const data = {};
+      formData.forEach((value, key) => {
+        data[key] = value;
+      });
+      
+      // FormSubmit options
+      data['_subject'] = 'Yeni Demo Talebi - RobinK.me';
+      
+      fetch('https://formsubmit.co/ajax/78@robink.me', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(() => {
+        demoForm.style.display = 'none';
+        if (demoSuccessMsg) demoSuccessMsg.style.display = 'block';
+        setTimeout(() => {
+          closeDemoModal();
+        }, 4000);
+      })
+      .catch((error) => {
+        console.error('Submission error:', error);
+        alert('Talebiniz gönderilirken bir hata oluştu. Lütfen tekrar deneyin. / An error occurred. Please try again.');
+        if (submitBtn) submitBtn.disabled = false;
+        if (submitBtnText) submitBtnText.textContent = originalText;
+      });
     });
   }
 
