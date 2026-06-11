@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const themeToggle = document.getElementById('theme-toggle');
   
   const savedTheme = localStorage.getItem('theme');
-  const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+  const initialTheme = savedTheme || 'light';
   
   htmlElement.setAttribute('data-theme', initialTheme);
   
@@ -268,7 +267,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
       descTr: 'Şirketlerin verimsiz manuel operasyonlardan akıllı, otonom iş akışlarına geçiş vizyonunun incelenmesi.',
-      descEn: 'We explore the vision of companies transitioning from inefficient manual operations to smart, autonomous workflows.'
+      descEn: 'We explore the vision of companies transitioning from inefficient manual operations to smart, autonomous workflows.',
+      detailsTr: [
+        "Manuel süreçlerin adım adım otonom sistemlere evrimi",
+        "İnsan ve yapay zeka ajanlarının hibrid iş birliği modeli",
+        "7/24 kesintisiz, dinamik ve ölçeklenebilir operasyon altyapısı"
+      ],
+      detailsEn: [
+        "Step-by-step evolution of manual tasks into autonomous workflows",
+        "Hybrid collaboration model between humans and intelligent AI agents",
+        "24/7 continuous, dynamic, and scalable operational infrastructure"
+      ]
     },
     2: { 
       titleTr: 'Geleneksel SOP Analizi', 
@@ -278,7 +287,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
       descTr: 'Mevcut standart operasyon prosedürlerinin (SOP) analizi yapılarak hangi süreçlerin yapay zekaya devredilebileceğinin tespit edilmesi.',
-      descEn: 'By analyzing existing standard operating procedures (SOPs), we identify which processes can be delegated to artificial intelligence.'
+      descEn: 'By analyzing existing standard operating procedures (SOPs), we identify which processes can be delegated to artificial intelligence.',
+      detailsTr: [
+        "Mevcut departman SOP dokümanlarının derinlemesine taranması",
+        "Tekrarlayan adımların ve bilişsel sürtünme noktalarının tespiti",
+        "Detaylı otonomizasyon uygunluk ve fizibilite raporlaması"
+      ],
+      detailsEn: [
+        "In-depth scanning of existing departmental SOP documentation",
+        "Mapping repetitive steps and key cognitive friction points",
+        "Detailed automation feasibility scoring and ROI analysis"
+      ]
     },
     3: { 
       titleTr: 'Otonom Modelleme', 
@@ -288,7 +307,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
       descTr: 'Süreçlerin, yapay zeka ajanlarının anlayabileceği mantıksal karar ağaçlarına ve akış şemalarına dönüştürülmesi aşaması.',
-      descEn: 'The phase of converting processes into logical decision trees and flowcharts that AI agents can comprehend.'
+      descEn: 'The phase of converting processes into logical decision trees and flowcharts that AI agents can comprehend.',
+      detailsTr: [
+        "İş adımlarının mantıksal karar ağaçlarına (Decision Trees) dökülmesi",
+        "İstisnai durumlar ve beklenmedik senaryo yollarının tasarımı",
+        "Ajanlar için gerekli bilişsel yetenek setlerinin tanımlanması"
+      ],
+      detailsEn: [
+        "Mapping workflow steps into structured decision trees",
+        "Designing logic gates for exception handling and edge cases",
+        "Defining the required cognitive skillsets for each automated agent"
+      ]
     },
     4: { 
       titleTr: 'İş Akışı Optimizasyonu', 
@@ -298,7 +327,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Autonomous Processes', 
       tagClass: 'red-tag', 
       descTr: 'Akışların simüle edilmesi, darboğazların tespiti ve en yüksek hız için süreç optimizasyon parametrelerinin ayarlanması.',
-      descEn: 'Simulation of workflows, detection of bottlenecks, and adjustment of process optimization parameters for maximum speed.'
+      descEn: 'Simulation of workflows, detection of bottlenecks, and adjustment of process optimization parameters for maximum speed.',
+      detailsTr: [
+        "Süreçlerdeki hantal ve gereksiz onay adımlarının elenmesi",
+        "İş akışının simüle edilerek olası tıkanıklıkların çözülmesi",
+        "Maksimum işlem hızı için paralel görev akışlarının kurgulanması"
+      ],
+      detailsEn: [
+        "Eliminating redundant and slow manual approval steps",
+        "Simulating processes to identify and resolve throughput issues",
+        "Structuring parallel task execution for maximum operational speed"
+      ]
     },
     5: { 
       titleTr: 'Yapay Zeka Ajan Seçimi', 
@@ -308,7 +347,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'AI Agents', 
       tagClass: 'green-tag', 
       descTr: 'Departman bazlı ihtiyaçlar için en uygun bilişsel yeteneklere sahip akıllı yapay zeka ajan modellerinin belirlenmesi.',
-      descEn: 'Determination of the intelligent AI agent models with the most suitable cognitive capabilities for department-based needs.'
+      descEn: 'Determination of the intelligent AI agent models with the most suitable cognitive capabilities for department-based needs.',
+      detailsTr: [
+        "Göreve özel LLM / LMM model mimarilerinin belirlenmesi",
+        "İşlem hızı, maliyet ve doğruluk dengesinin kurulması",
+        "Gelişmiş bilgi tabanı (RAG) yeteneğine sahip ajanların seçimi"
+      ],
+      detailsEn: [
+        "Selecting task-specific LLM / LMM model architectures",
+        "Balancing execution speed, API costs, and precision metrics",
+        "Choosing agents with advanced retrieval-augmented generation (RAG)"
+      ]
     },
     6: { 
       titleTr: 'Bilişsel Görev Dağılımı', 
@@ -318,7 +367,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'AI Agents', 
       tagClass: 'green-tag', 
       descTr: 'Belirli süreç sorumluluklarının ilgili yapay zeka asistanlarına atanması ve karar yetki sınırlarının tanımlanması.',
-      descEn: 'Assignment of specific process responsibilities to relevant AI assistants and definition of decision-making authority boundaries.'
+      descEn: 'Assignment of specific process responsibilities to relevant AI assistants and definition of decision-making authority boundaries.',
+      detailsTr: [
+        "Karmaşık işlerin otonom alt görevlere (sub-tasks) bölünmesi",
+        "Ajanların yetki, karar ve eylem sınırlarının netleştirilmesi",
+        "Veri erişim seviyeleri ve rol tanımlarının yapılması"
+      ],
+      detailsEn: [
+        "Deconstructing complex goals into modular, actionable sub-tasks",
+        "Defining clear agent authorization and decision boundaries",
+        "Assigning explicit data access levels and role definitions"
+      ]
     },
     7: { 
       titleTr: 'Ajanlar Arası İletişim', 
@@ -328,7 +387,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'AI Agents', 
       tagClass: 'green-tag', 
       descTr: 'Farklı otonom ajanların birbiriyle veri paylaşabilmesi ve ortaklaşa iş yürütebilmesi için iletişim protokollerinin kurulması.',
-      descEn: 'Establishing communication protocols for different autonomous agents to share data and collaborate on tasks.'
+      descEn: 'Establishing communication protocols for different autonomous agents to share data and collaborate on tasks.',
+      detailsTr: [
+        "Çoklu ajan (Multi-agent) iş birliği protokollerinin kurulması",
+        "Ajanlar arası ortak hafıza (Shared Memory) yapısının entegrasyonu",
+        "Standart veri formatı ile güvenli ve hızlı veri transferi"
+      ],
+      detailsEn: [
+        "Establishing collaborative multi-agent communication protocols",
+        "Integrating shared memory systems for historical context retention",
+        "Standardizing data formats for secure, rapid inter-agent transfer"
+      ]
     },
     8: { 
       titleTr: 'İş Gücü Entegrasyonu', 
@@ -338,7 +407,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'AI Agents', 
       tagClass: 'green-tag', 
       descTr: 'Otonom yapay zeka ajan iş gücü ile insan çalışanlar arasındaki onay mekanizmalarının ve ortak çalışma arayüzlerinin entegre edilmesi.',
-      descEn: 'Integration of approval mechanisms and collaboration interfaces between the autonomous AI agent workforce and human employees.'
+      descEn: 'Integration of approval mechanisms and collaboration interfaces between the autonomous AI agent workforce and human employees.',
+      detailsTr: [
+        "İnsan-etkileşimli (Human-in-the-loop) ara onay ekranları",
+        "Kritik ve yüksek riskli işlemler için insan denetimi (Oversight)",
+        "Ekiplerin ajan performanslarını izleyeceği kontrol paneli"
+      ],
+      detailsEn: [
+        "Integrating intuitive Human-in-the-loop (HITL) approval interfaces",
+        "Enforcing human oversight locks on high-risk transaction thresholds",
+        "Deploying tracking dashboards for staff to monitor agent queues"
+      ]
     },
     9: { 
       titleTr: 'API ve Bağlantı Altyapısı', 
@@ -348,7 +427,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Process Integration', 
       tagClass: 'blue-tag', 
       descTr: 'Ajanların kurumsal yazılımlara erişebilmesi için gerekli güvenli API bağlantı katmanlarının oluşturulması.',
-      descEn: 'Creation of the secure API connection layers required for agents to access corporate software.'
+      descEn: 'Creation of the secure API connection layers required for agents to access corporate software.',
+      detailsTr: [
+        "Kurumsal ERP, CRM ve özel yazılım API entegrasyonları",
+        "Güvenli token, kimlik doğrulama ve API anahtarı yönetimi",
+        "Yüksek hızlı RESTful ve GraphQL veri iletişim katmanı"
+      ],
+      detailsEn: [
+        "Integrating enterprise ERP, CRM, and bespoke system APIs",
+        "Enforcing secure token validation and active credential rotation",
+        "Building low-latency RESTful and GraphQL data pipe layers"
+      ]
     },
     10: { 
       titleTr: 'Veri Ambarı Entegrasyonu', 
@@ -358,7 +447,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Process Integration', 
       tagClass: 'blue-tag', 
       descTr: 'Şirket içi veri ambarları ve bulut veritabanlarının, otonom ajanların anlık sorgular yapabilmesi için güvenli bir şekilde bağlanması.',
-      descEn: 'Secure connection of internal data warehouses and cloud databases for autonomous agents to perform real-time queries.'
+      descEn: 'Secure connection of internal data warehouses and cloud databases for autonomous agents to perform real-time queries.',
+      detailsTr: [
+        "Veri ambarlarına (DWH) güvenli okuma ve yazma yetkisi",
+        "Vektör veritabanları (Vector DB) ile anlamsal veri entegrasyonu",
+        "Anlık veri senkronizasyonu ile güncel veri erişimi"
+      ],
+      detailsEn: [
+        "Configuring secure read/write permissions for databases",
+        "Connecting Vector Databases for semantic context storage",
+        "Establishing real-time data sync loops across storage instances"
+      ]
     },
     11: { 
       titleTr: 'Güvenlik ve İzin Protokolleri', 
@@ -367,8 +466,18 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagTr: 'Süreç Entegrasyonu', 
       phaseTagEn: 'Process Integration', 
       tagClass: 'blue-tag', 
-      descTr: 'Veri sızıntılarını önlemek amacıyla ajanların yetki alanlarının kısıtlanması, şifreleme ve kurumsal uyumluluk kurallarının uygulanması.',
-      descEn: 'Restricting agent authorization boundaries, encryption, and enforcing corporate compliance rules to prevent data leaks.'
+      descTr: 'Veri sızıntılarını prevent etmek amacıyla ajanların yetki alanlarının kısıtlanması, şifreleme ve kurumsal uyumluluk kurallarının uygulanması.',
+      descEn: 'Restricting agent authorization boundaries, encryption, and enforcing corporate compliance rules to prevent data leaks.',
+      detailsTr: [
+        "Bölgesel veri kanunlarına (KVKK / GDPR) tam uyumluluk",
+        "Uçtan uca şifreleme (Encryption at rest & in transit) protokolü",
+        "Periyodik sızma testleri ve otonom güvenlik denetim kayıtları"
+      ],
+      detailsEn: [
+        "Enforcing absolute compliance with KVKK and GDPR regulations",
+        "Enabling end-to-end encryption for data at rest and in transit",
+        "Scheduling automatic penetration checks and security audit logs"
+      ]
     },
     12: { 
       titleTr: 'Verim ve Metrik İzleme', 
@@ -378,7 +487,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Operational Analytics', 
       tagClass: 'yellow-tag', 
       descTr: 'Otonom hale gelen süreçlerin hız, maliyet ve doğruluk oranlarının anlık olarak göstergelerle takip edilmesi.',
-      descEn: 'Real-time tracking of the speed, cost, and accuracy rates of automated processes through indicators.'
+      descEn: 'Real-time tracking of the speed, cost, and accuracy rates of automated processes through indicators.',
+      detailsTr: [
+        "Süreç tamamlama hızlarının (Cycle Time) anlık takibi",
+        "Ajan işlem hata oranları ve doğruluk yüzdelerinin izlenmesi",
+        "Yapay zeka kaynak maliyeti ve ROI grafiklerinin takibi"
+      ],
+      detailsEn: [
+        "Real-time tracking of workflow cycle times and transaction counts",
+        "Monitoring agent success rates, accuracy percentages, and failures",
+        "Analyzing operational compute costs against ROI improvements"
+      ]
     },
     13: { 
       titleTr: 'Hata Yönetimi ve Loglama', 
@@ -388,7 +507,17 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Operational Analytics', 
       tagClass: 'yellow-tag', 
       descTr: 'Süreçlerde yaşanabilecek aksaklıkların otomatik olarak tespit edilip loglanması ve insan yöneticilere anında bildirim gönderilmesi altyapısı.',
-      descEn: 'Infrastructure for automatically detecting and logging issues in processes and sending instant notifications to human managers.'
+      descEn: 'Infrastructure for automatically detecting and logging issues in processes and sending instant notifications to human managers.',
+      detailsTr: [
+        "Ajan bazlı beklenmedik hata ve istisnaların tespiti",
+        "Çözülemeyen krizlerde insan yöneticilere anlık bildirim",
+        "Geriye dönük denetlenebilir detaylı işlem loglama (Audit Trail)"
+      ],
+      detailsEn: [
+        "Automatically flagging unexpected agent syntax or logic issues",
+        "Escalating unresolved issues instantly to human supervisors",
+        "Maintaining fully inspectable audit trails for past transactions"
+      ]
     },
     14: { 
       titleTr: 'Sürekli Otonom Gelişim', 
@@ -398,12 +527,23 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseTagEn: 'Operational Analytics', 
       tagClass: 'yellow-tag', 
       descTr: 'Analitik veriler doğrultusunda sistemin kendi kendini güncelleyerek zamanla daha verimli kararlar almasını sağlayan optimizasyon döngüsü.',
-      descEn: 'An optimization cycle that allows the system to self-update in line with analytical data to make more efficient decisions over time.'
+      descEn: 'An optimization cycle that allows the system to self-update in line with analytical data to make more efficient decisions over time.',
+      detailsTr: [
+        "Hatalardan ders alan otonom geribildirim döngüleri",
+        "Performans analizi ile ajan modellerinin ince ayar (Fine-tune) tespiti",
+        "Öğrenilen metotlarla operasyonel maliyetlerin zamanla düşmesi"
+      ],
+      detailsEn: [
+        "Developing self-improving feedback loops from historical errors",
+        "Identifying targets for model fine-tuning based on performance logs",
+        "Lowering computational overhead dynamically via learned strategies"
+      ]
     }
   };
 
   const stepNavButtons = document.querySelectorAll('.step-nav-btn');
-  const deckGif = document.getElementById('deck-gif');
+  const deckVideo = document.getElementById('deck-video');
+  const deckVideoSource = document.getElementById('deck-video-source');
   
   const deckTitleTr = document.getElementById('deck-title-tr');
   const deckTitleEn = document.getElementById('deck-title-en');
@@ -413,6 +553,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const deckPhaseTagEn = document.getElementById('deck-phase-tag-en');
   const deckStepTagTr = document.getElementById('deck-step-tag-tr');
   const deckStepTagEn = document.getElementById('deck-step-tag-en');
+  const deckDetailsTr = document.getElementById('deck-details-tr');
+  const deckDetailsEn = document.getElementById('deck-details-en');
   
   const loadStep = (stepNumber) => {
     const data = stepsData[stepNumber];
@@ -439,8 +581,17 @@ document.addEventListener('DOMContentLoaded', () => {
       deckPhaseTagEn.className = `deck-phase-tag ${data.tagClass}`;
     }
     
-    if(deckGif) {
-      deckGif.setAttribute('src', `assets/videos/${stepNumber}-sayfa.webp`);
+    if (deckVideoSource && deckVideo) {
+      deckVideoSource.setAttribute('src', `assets/videos/${stepNumber}-sayfa.webm`);
+      deckVideo.load();
+      deckVideo.play().catch(err => console.log("Video play interrupted:", err));
+    }
+
+    if (deckDetailsTr && data.detailsTr) {
+      deckDetailsTr.innerHTML = data.detailsTr.map(item => `<li>${item}</li>`).join('');
+    }
+    if (deckDetailsEn && data.detailsEn) {
+      deckDetailsEn.innerHTML = data.detailsEn.map(item => `<li>${item}</li>`).join('');
     }
   };
   
@@ -449,6 +600,9 @@ document.addEventListener('DOMContentLoaded', () => {
       loadStep(parseInt(btn.getAttribute('data-step')));
     });
   });
+
+  // Initialize first step details on load
+  loadStep(1);
 
   /* ==========================================================================
      6. Interactive Flywheel & Filtering Logic
@@ -640,10 +794,11 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
   
-  // Tek bir Global ESC dinleyicisi tüm açık pencereleri (menü, manifesto, lightbox) kapatır
+  // Tek bir Global ESC dinleyicisi tüm açık pencereleri (menü, manifesto, lightbox, demo) kapatır
   document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       if (lightboxModal && lightboxModal.classList.contains('show')) closeLightbox();
+      if (demoModal && demoModal.classList.contains('open')) closeDemoModal();
       if (manifestoDrawer) manifestoDrawer.classList.remove('open');
       if (termsDrawer) termsDrawer.classList.remove('open');
       if (privacyDrawer) privacyDrawer.classList.remove('open');
@@ -678,6 +833,11 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => {
       openManifesto();
     }, 1200);
+  } else if (actionParam === 'demo') {
+    // Open demo modal after preloader completes (approx 1200ms)
+    setTimeout(() => {
+      openDemoModal();
+    }, 1200);
   } else if (sectionParam) {
     // Click active segment after preloader completes
     setTimeout(() => {
@@ -686,6 +846,65 @@ document.addEventListener('DOMContentLoaded', () => {
         matchingSegment.click();
       }
     }, 1200);
+  }
+
+  /* ==========================================================================
+     9. Demo Request Modal Logic
+     ========================================================================== */
+  const demoModal = document.getElementById('demo-modal');
+  const demoClose = document.getElementById('demo-close');
+  const demoTriggers = document.querySelectorAll('.js-demo-trigger');
+  const demoForm = document.getElementById('demo-form');
+  const demoSuccessMsg = document.getElementById('demo-success-msg');
+
+  const openDemoModal = (e) => {
+    if (e) e.preventDefault();
+    if (demoModal) {
+      demoModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  const closeDemoModal = () => {
+    if (demoModal) {
+      demoModal.classList.remove('open');
+      document.body.style.overflow = '';
+      setTimeout(() => {
+        if (demoForm) demoForm.style.display = 'block';
+        if (demoSuccessMsg) demoSuccessMsg.style.display = 'none';
+        if (demoForm) demoForm.reset();
+      }, 300);
+    }
+  };
+
+  demoTriggers.forEach(trig => {
+    trig.addEventListener('click', openDemoModal);
+  });
+
+  if (demoClose) {
+    demoClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeDemoModal();
+    });
+  }
+
+  if (demoModal) {
+    const backdrop = demoModal.querySelector('.modal-backdrop');
+    if (backdrop) {
+      backdrop.addEventListener('click', closeDemoModal);
+    }
+  }
+
+  if (demoForm) {
+    demoForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      // Mock request simulation with smooth UI transitions
+      demoForm.style.display = 'none';
+      if (demoSuccessMsg) demoSuccessMsg.style.display = 'block';
+      setTimeout(() => {
+        closeDemoModal();
+      }, 3500);
+    });
   }
 
 });

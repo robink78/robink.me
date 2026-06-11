@@ -22,8 +22,8 @@
   --animation-long: var(--duration-long) var(--cubic-inout);
 
   /* Font Families with System Fallbacks */
-  --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
-  --font-display: 'Syne', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-display: 'Bricolage Grotesque', system-ui, -apple-system, sans-serif;
 }
 
 /* Dark Mode Tokens (Default) */
@@ -69,7 +69,8 @@ html, body {
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: clamp(13px, 0.15vw + 13px, 15px); /* Professional adaptive scaling */
-  line-height: 1.6;
+  line-height: 1.68;
+  letter-spacing: 0.015em;
   overflow-x: hidden;
   transition: background-color var(--animation-inout), color var(--animation-inout);
   text-rendering: optimizeLegibility;
@@ -1965,6 +1966,341 @@ body.contact-page-body .footer-w {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* ==========================================================================
+   10. Outline & CTA Button Styles
+   ========================================================================== */
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  border: 1px solid var(--color-border);
+  background-color: transparent;
+  color: var(--color-text-dim);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: border-color var(--animation-short), color var(--animation-short), background-color var(--animation-short);
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+  background-color: rgba(var(--color-text), 0.03);
+}
+
+.nav-cta-btn {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.5rem 1.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background-color: transparent;
+  color: var(--color-text);
+  transition: border-color var(--animation-short), background-color var(--animation-short), color var(--animation-short);
+}
+
+.nav-cta-btn:hover {
+  border-color: var(--color-text);
+  background-color: var(--color-text);
+  color: var(--color-bg);
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   11. Department-Specific Autonomous Solutions Grid
+   ========================================================================== */
+
+.departments-section {
+  padding: 6rem 0;
+  border-top: 1px solid var(--color-border-dim);
+}
+
+.departments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 991px) {
+  .departments-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.department-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--color-border-dim);
+  border-radius: 16px;
+  padding: 2.5rem;
+  transition: transform var(--animation-short), border-color var(--animation-short), box-shadow var(--animation-short);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.department-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px var(--color-shadow);
+}
+
+.department-card.border-red:hover { border-color: var(--accent-red); }
+.department-card.border-green:hover { border-color: var(--accent-green); }
+.department-card.border-blue:hover { border-color: var(--accent-blue); }
+.department-card.border-yellow:hover { border-color: var(--accent-yellow); }
+
+.dep-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.dep-icon-w {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background-color: rgba(var(--color-text), 0.03);
+  padding: 10px;
+}
+
+.dep-icon-w.color-red { color: var(--accent-red); background-color: rgba(255, 59, 48, 0.08); }
+.dep-icon-w.color-green { color: var(--accent-green); background-color: rgba(52, 199, 89, 0.08); }
+.dep-icon-w.color-blue { color: var(--accent-blue); background-color: rgba(0, 122, 255, 0.08); }
+.dep-icon-w.color-yellow { color: var(--accent-yellow); background-color: rgba(255, 204, 0, 0.08); }
+
+.dep-name {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.dep-name small {
+  font-family: var(--font-body);
+  font-weight: 400;
+  text-transform: none;
+  color: var(--color-text-dim);
+}
+
+.dep-process-title {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+}
+
+.dep-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--color-text-dim);
+  font-weight: 300;
+}
+
+/* ==========================================================================
+   12. Demo Request Modal Styling
+   ========================================================================== */
+
+.modal-w {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s var(--cubic-default);
+  padding: 1.5rem;
+}
+
+.modal-w.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.modal-layout {
+  position: relative;
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  width: 100%;
+  max-width: 580px;
+  padding: 3rem;
+  z-index: 2;
+  box-shadow: 0 20px 50px var(--color-shadow);
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s var(--cubic-default);
+}
+
+.modal-w.open .modal-layout {
+  transform: scale(1) translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+}
+
+.modal-title {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+.modal-subtitle {
+  font-size: 0.9rem;
+  color: var(--color-text-dim);
+  margin-top: 0.35rem;
+}
+
+.demo-form-w {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--color-text);
+  letter-spacing: 0.02em;
+}
+
+.form-group input,
+.form-group textarea {
+  background-color: var(--color-bg-dim);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--animation-short), background-color var(--animation-short);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: var(--color-text-dim);
+  opacity: 0.6;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: var(--color-text);
+  background-color: var(--color-bg);
+}
+
+.form-submit-btn {
+  margin-top: 1rem;
+  align-self: flex-start;
+}
+
+.form-success-message {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem 0;
+  animation: fadeIn 0.5s var(--cubic-default) forwards;
+}
+
+.success-icon {
+  width: 64px;
+  height: 64px;
+  color: var(--accent-green);
+  margin-bottom: 1.5rem;
+}
+
+.success-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.success-desc {
+  font-size: 0.95rem;
+  color: var(--color-text-dim);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 576px) {
+  .modal-layout {
+    padding: 2rem;
+  }
+}
+
+/* Presentation dynamic deck list styling */
+.deck-details-list {
+  margin-top: 1.5rem;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  border-top: 1px solid var(--color-border-dim);
+  padding-top: 1.25rem;
+}
+
+.deck-details-list li {
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--color-text);
+  position: relative;
+  padding-left: 1.5rem;
+  font-weight: 300;
+}
+
+.deck-details-list li::before {
+  content: "✦";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--accent-red);
+  font-size: 0.75rem;
+}
+
+[data-theme="light"] .deck-details-list li {
+  color: #23272b;
 }
 
 
