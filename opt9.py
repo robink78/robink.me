@@ -29,22 +29,12 @@ for filename in files:
     style_tag = soup.new_tag("style", id="critical-css")
     style_tag.string = "\n" + critical_css + "\n"
     
-    # Insert it before the style.css link
     style_link = soup.find("link", href="style.css")
     if style_link:
         style_link.insert_before(style_tag)
-        
-        # Modify the style.css link to be asynchronous
-        style_link["rel"] = "preload"
-        style_link["as"] = "style"
-        style_link["onload"] = "this.onload=null;this.rel='stylesheet'"
-        
-        # Add a noscript fallback for style.css
-        noscript = soup.new_tag("noscript")
-        fallback_link = soup.new_tag("link", rel="stylesheet", href="style.css")
-        noscript.append(fallback_link)
-        style_link.insert_after(noscript)
-        
+        style_link["rel"] = "stylesheet"
+        if "as" in style_link.attrs: del style_link["as"]
+        if "onload" in style_link.attrs: del style_link["onload"]
     with open(filename, "w", encoding="utf-8") as f:
         f.write(str(soup))
         

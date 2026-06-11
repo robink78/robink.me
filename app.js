@@ -584,7 +584,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (deckVideoSource && deckVideo) {
       deckVideoSource.setAttribute('src', `assets/videos/${stepNumber}-sayfa.webm`);
       deckVideo.load();
-      deckVideo.play().catch(err => console.log("Video play interrupted:", err));
+      deckVideo.play().catch(() => {});
     }
 
     if (deckDetailsTr && data.detailsTr) {
@@ -858,8 +858,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const demoSuccessMsg = document.getElementById('demo-success-msg');
 
   const openDemoModal = (e) => {
-    if (e) e.preventDefault();
     if (demoModal) {
+      if (e) e.preventDefault();
       demoModal.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
