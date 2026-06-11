@@ -43,11 +43,11 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   
   const updatePreloader = () => {
-    // Sayfa yüklendiyse sayacı hızlıca 100'e çek
+    // Sayfa yüklendiyse yapay beklemeyi tamamen atla ve doğrudan kapat
     if (isLoaded) {
-      currentPercent += 10;
+      currentPercent = 100;
     } else {
-      currentPercent += 1;
+      currentPercent += 2; // Daha hızlı artsın
     }
     
     if (currentPercent > 100) currentPercent = 100;
@@ -59,21 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if (currentPercent < 100) {
-      setTimeout(updatePreloader, isLoaded ? 10 : Math.floor(Math.random() * 15) + 20);
+      // Yüklenmemişse standart animasyon döngüsü (requestAnimationFrame ile daha performanslı)
+      requestAnimationFrame(() => setTimeout(updatePreloader, 10));
     } else {
-      setTimeout(() => {
-        if(preloader) {
-          preloader.style.opacity = '0';
-          preloader.style.transform = 'translateY(-100%)';
-        }
-        if(appWrapper) {
-          appWrapper.style.visibility = 'visible';
-          appWrapper.style.opacity = '1';
-        }
-        setTimeout(() => {
-          if(preloader) preloader.style.display = 'none';
-        }, 800);
-      }, 200);
+      // Yüzde 100 olunca yapay gecikme olmadan hemen kaldır
+      if(preloader) {
+        preloader.style.opacity = '0';
+        preloader.style.transform = 'translateY(-100%)';
+        setTimeout(() => { preloader.style.display = 'none'; }, 300); // Sadece CSS transition süresi kadar bekle
+      }
+      if(appWrapper) {
+        appWrapper.style.visibility = 'visible';
+        appWrapper.style.opacity = '1';
+      }
     }
   };
   
@@ -442,7 +440,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     if(deckGif) {
-      deckGif.setAttribute('src', `assets/videos/${stepNumber}-sayfa.gif`);
+      deckGif.setAttribute('src', `assets/videos/${stepNumber}-sayfa.webp`);
     }
   };
   

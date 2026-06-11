@@ -1,890 +1,1110 @@
 <!DOCTYPE html>
-<html lang="tr" data-theme="dark">
+
+<html data-theme="dark" lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RobinK.me | Şirketler İçin Otonom Süreçler İşletim Sistemi</title>
-  <meta name="description" content="Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü. 14 adımlı otonom entegrasyon sunumu.">
-  
-  <link rel="canonical" href="https://robink.me/">
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <!-- Open Graph / Facebook / Perplexity / ChatGPT -->
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://robink.me/">
-  <meta property="og:title" content="RobinK.me | Şirketler İçin Otonom İş Süreçleri İşletim Sistemi">
-  <meta property="og:description" content="Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü. 14 adımlı otonom entegrasyon süreci.">
-  <meta property="og:image" content="https://robink.me/assets/images/2026_Operasyonel_Otonomizasyon_Cagi.jpg">
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://robink.me/">
-  <meta property="twitter:title" content="RobinK.me | Şirketler İçin Otonom İş Süreçleri İşletim Sistemi">
-  <meta property="twitter:description" content="Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü.">
-  <meta property="twitter:image" content="https://robink.me/assets/images/2026_Operasyonel_Otonomizasyon_Cagi.jpg">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Organization",
-        "@id": "https://robink.me/#organization",
-        "name": "ROBINK.ME",
-        "url": "https://robink.me",
-        "logo": {
-          "@type": "ImageObject",
-          "url": "https://robink.me/assets/images/robin-bird.jpg",
-          "caption": "ROBINK.ME Logo"
-        },
-        "description": "Şirketler İçin Otonom Süreçler İşletim Sistemi. Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü.",
-        "sameAs": [
-          "https://www.linkedin.com/in/robink-me/"
-        ]
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>RobinK.me | Şirketler İçin Otonom Süreçler İşletim Sistemi</title>
+<meta content="Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü. 14 adımlı otonom entegrasyon sunumu." name="description"/>
+<link href="https://robink.me/" rel="canonical"/>
+<link href="https://robink.me/" hreflang="tr" rel="alternate"/>
+<link href="https://robink.me/" hreflang="en" rel="alternate"/>
+<link href="https://robink.me/" hreflang="x-default" rel="alternate"/>
+<meta content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" name="robots"/>
+<meta content="TR" name="geo.region"/>
+<meta content="Turkey" name="geo.placename"/>
+<meta content="41.0082, 28.9784" name="ICBM"/>
+<link href="favicon.png" rel="icon" type="image/png"/>
+<!-- Open Graph / Facebook / Perplexity / ChatGPT -->
+<meta content="tr_TR" property="og:locale"/>
+<meta content="en_US" property="og:locale:alternate"/>
+<meta content="website" property="og:type"/>
+<meta content="https://robink.me/" property="og:url"/>
+<meta content="RobinK.me | Şirketler İçin Otonom İş Süreçleri İşletim Sistemi" property="og:title"/>
+<meta content="Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü. 14 adımlı otonom entegrasyon süreci." property="og:description"/>
+<meta content="https://robink.me/assets/images/2026_Operasyonel_Otonomizasyon_Cagi.jpg" property="og:image"/>
+<!-- Twitter -->
+<meta content="summary_large_image" property="twitter:card"/>
+<meta content="https://robink.me/" property="twitter:url"/>
+<meta content="RobinK.me | Şirketler İçin Otonom İş Süreçleri İşletim Sistemi" property="twitter:title"/>
+<meta content="Kurumsal süreçlerin otonomizasyonu ve yapay zeka ajanları ile iş gücünün dönüşümü." property="twitter:description"/>
+<meta content="https://robink.me/assets/images/2026_Operasyonel_Otonomizasyon_Cagi.jpg" property="twitter:image"/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://robink.me/#organization",
+      "name": "ROBINK.ME",
+      "url": "https://robink.me",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://robink.me/assets/images/robin-bird.jpg",
+        "caption": "ROBINK.ME Logo"
       },
-      {
-        "@type": "WebSite",
-        "@id": "https://robink.me/#website",
-        "url": "https://robink.me",
-        "name": "ROBINK.ME",
-        "publisher": {
-          "@id": "https://robink.me/#organization"
-        },
-        "description": "Kurumsal otonom iş süreçleri işletim sistemi (Hermes OS) ve yapay zeka ajan entegrasyonu."
+      "description": "RobinK, şirketler için otonom yapay zeka ajanları (Hermes Agent) kurulumu, kurumsal iş akışı otomasyonu ve sistem entegrasyonu hizmetleri sunan bir teknoloji ve danışmanlık platformudur.",
+      "telephone": "+905555548800",
+      "sameAs": [
+        "https://x.com/robinkme",
+        "https://www.linkedin.com/in/robink-me/"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://robink.me/#website",
+      "url": "https://robink.me",
+      "name": "ROBINK.ME",
+      "publisher": {
+        "@id": "https://robink.me/#organization"
       },
-      {
-        "@type": "FAQPage",
-        "@id": "https://robink.me/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "Otonom iş süreçleri nedir? / What are autonomous business processes?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Otonom iş süreçleri, şirket içi iş akışlarının standart operasyon prosedürlerine (SOP) göre insan müdahalesi olmadan otomatik ve akıllı bir şekilde yürütülmesidir. / Autonomous business processes are the automated and intelligent execution of internal workflows according to Standard Operating Procedures (SOPs) without manual human intervention."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Yapay zeka ajanları kurumsal süreçlerde nasıl rol oynar? / How do AI agents operate in corporate processes?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yapay zeka ajanları, şirketlerin farklı departmanlarında (pazarlama, operasyon, analiz, entegrasyon vb.) rutin ve bilişsel iş yükünü üstlenerek kendi başlarına akıl yürütebilen otonom asistanlar olarak görev alırlar. / AI agents operate as autonomous assistants deployed across different departments, handling routine and cognitive workloads with reasoning and execution capabilities."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Hermes OS entegrasyon süreci kaç adımdan oluşur? / How many steps are in the Hermes OS integration process?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Hermes OS otonomizasyon süreci, geleneksel SOP analizinden başlayıp bilişsel görev dağılımı, API bağlantısı ve sürekli otonom gelişime uzanan 14 adımdan oluşur. / The Hermes OS autonomization process consists of 14 key phases, spanning from traditional SOP analysis and cognitive task allocation to API integration and continuous performance optimization."
-            }
+      "description": "Kurumsal otonom iş süreçleri işletim sistemi (Hermes OS) ve yapay zeka ajan entegrasyonu."
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://robink.me/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Otonom iş süreçleri nedir? / What are autonomous business processes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Otonom iş süreçleri, şirket içi iş akışlarının standart operasyon prosedürlerine (SOP) göre insan müdahalesi olmadan otomatik ve akıllı bir şekilde yürütülmesidir. / Autonomous business processes are the automated and intelligent execution of internal workflows according to Standard Operating Procedures (SOPs) without manual human intervention."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "Yapay zeka ajanları kurumsal süreçlerde nasıl rol oynar? / How do AI agents operate in corporate processes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yapay zeka ajanları, şirketlerin farklı departmanlarında (pazarlama, operasyon, analiz, entegrasyon vb.) rutin ve bilişsel iş yükünü üstlenerek kendi başlarına akıl yürütebilen otonom asistanlar olarak görev alırlar. / AI agents operate as autonomous assistants deployed across different departments, handling routine and cognitive workloads with reasoning and execution capabilities."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hermes OS entegrasyon süreci kaç adımdan oluşur? / How many steps are in the Hermes OS integration process?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hermes OS otonomizasyon süreci, geleneksel SOP analizinden başlayıp bilişsel görev dağılımı, API bağlantısı ve sürekli otonom gelişime uzanan 14 adımdan oluşur. / The Hermes OS autonomization process consists of 14 key phases, spanning from traditional SOP analysis and cognitive task allocation to API integration and continuous performance optimization."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Otonom iş süreçleri ne kadar zamanda kurulur? / How long does it take to establish autonomous business processes?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kurulum süresi şirketinizin büyüklüğüne ve mevcut SOP'ların durumuna göre değişmekle birlikte, tipik bir departman entegrasyonu 4-8 hafta arasında tamamlanmaktadır. Bu süreçte analiz, modelleme, ajan seçimi ve sistem testleri titizlikle yürütülür. / Installation time varies depending on your company's size and the state of current SOPs, but a typical department integration is completed within 4-8 weeks. During this process, analysis, modeling, agent selection, and system tests are meticulously executed."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "AI agent entegrasyonu için hangi API'ler gereklidir? / Which APIs are required for AI agent integration?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hermes OS, esnek yapısı sayesinde ERP, CRM, İK sistemleri ve özel veritabanları ile RESTful ve GraphQL API'ler üzerinden sorunsuz haberleşebilir. Gerekli API'ler tamamen kullanmakta olduğunuz yazılım altyapısına göre özel olarak belirlenir ve entegre edilir. / Thanks to its flexible structure, Hermes OS can seamlessly communicate with ERP, CRM, HR systems, and custom databases via RESTful and GraphQL APIs. The necessary APIs are specifically determined and integrated based entirely on the software infrastructure you are currently using."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Hermes OS hangi sektörlerde kullanılabilir? / Which sectors can use Hermes OS?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hermes OS; finans, e-ticaret, üretim, lojistik ve sağlık dahil olmak üzere, tekrarlayan süreçlerin ve yoğun veri analizinin olduğu her sektörde rahatlıkla uygulanabilir. Sistem, sektöre özel SOP'lara anında uyum sağlayacak şekilde tasarlanmıştır. / Hermes OS can be easily applied in every sector with repetitive processes and intensive data analysis, including finance, e-commerce, manufacturing, logistics, and healthcare. The system is designed to adapt instantly to sector-specific SOPs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Otonom süreçler insan çalışanların yerini mi alır? / Do autonomous processes replace human employees?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Hayır, otonom süreçler insanların yerini almak yerine rutin ve zaman alıcı görevleri üstlenerek çalışanların daha stratejik, yaratıcı ve katma değerli işlere odaklanmasını sağlar. İnsan-ajan işbirliği (Human-in-the-loop) modelimiz verimliliği maksimize eder. / No, instead of replacing humans, autonomous processes take over routine and time-consuming tasks, allowing employees to focus on more strategic, creative, and value-added work. Our human-agent collaboration (Human-in-the-loop) model maximizes productivity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "RobinK.me'nin rakiplerinden farkı nedir? / What makes RobinK.me different from its competitors?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sadece tekil görevleri otomatize etmekle kalmıyor, farklı AI ajanlarını orkestra gibi yöneten ve mevcut altyapınıza entegre olan merkezi bir işletim sistemi (Hermes OS) sunuyoruz. 14 adımlı çerçevemiz, süreci başından sonuna kadar şeffaf ve ölçülebilir kılar. / We don't just automate individual tasks; we offer a centralized operating system (Hermes OS) that manages different AI agents like an orchestra and integrates into your existing infrastructure. Our 14-step framework makes the process transparent and measurable from start to finish."
+          }
+        }
+      ]
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://robink.me/#software",
+      "name": "Hermes OS",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Cloud, Linux, Ubuntu, Docker",
+      "description": "Şirketler için otonom iş süreçleri işletim sistemi. Kurumsal iş akışlarının, veri entegrasyonlarının ve yapay zeka ajanlarının tek bir merkezde orkestre edilmesini sağlar. RESTful ve GraphQL entegrasyonlarını destekler.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "TRY",
+        "availability": "https://schema.org/ComingSoon"
+      },
+      "featureList": [
+        "Autonomous Workflow Design (SOP to AI-driven processes)",
+        "AI Agent Deployment (cognitive task allocation & Hermes Agent)",
+        "Process Integration (RESTful & GraphQL API connectivity)",
+        "Operational Analytics & Real-time performance monitoring"
+      ],
+      "releaseNotes": "Ubuntu & Docker tabanlı kalıcı konteyner mimarisi ile 7/24 kesintisiz otonom operasyonlar."
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://robink.me/#webpage",
+      "url": "https://robink.me",
+      "name": "RobinK.me | Şirketler İçin Otonom İş Süreçleri İşletim Sistemi",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [
+          ".hero-title",
+          ".hero-desc",
+          ".section-heading-title"
         ]
       }
-    ]
-  }
-  </script>
+    }
+  ]
+}
+</script>
+<meta content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self';" http-equiv="Content-Security-Policy"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="preload"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;family=Syne:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<style id="critical-css">
+/* ==========================================================================
+   CSS Design Tokens & Theme Variables
+   ========================================================================== */
 
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' https://fonts.googleapis.com 'unsafe-inline'; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; media-src 'self';">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+:root {
+  /* Dynamic Accents */
+  --accent-red: #ff3b30;
+  --accent-green: #34c759;
+  --accent-blue: #007aff;
+  --accent-yellow: #ffcc00;
   
-  <link rel="stylesheet" href="style.css">
+  /* Transition Constants */
+  --cubic-default: cubic-bezier(0.65, 0.05, 0, 1);
+  --cubic-inout: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-short: 0.3s;
+  --duration-default: 0.75s;
+  --duration-long: 1.5s;
+  
+  --animation-short: var(--duration-short) var(--cubic-default);
+  --animation-default: var(--duration-default) var(--cubic-default);
+  --animation-inout: var(--duration-default) var(--cubic-inout);
+  --animation-long: var(--duration-long) var(--cubic-inout);
 
-  <noscript>
-    <style>
+  /* Font Families with System Fallbacks */
+  --font-body: 'Outfit', system-ui, -apple-system, sans-serif;
+  --font-display: 'Syne', system-ui, -apple-system, sans-serif;
+}
+
+/* Dark Mode Tokens (Default) */
+[data-theme="dark"] {
+  --color-bg: #121416;
+  --color-bg-dim: #1a1d20;
+  --color-text: #eef1f3;
+  --color-text-dim: rgba(238, 241, 243, 0.6);
+  --color-border: rgba(238, 241, 243, 0.15);
+  --color-border-dim: rgba(238, 241, 243, 0.08);
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --preloader-bg: #0b0c0d;
+  --card-bg: #171a1d;
+}
+
+/* Light Mode Tokens */
+[data-theme="light"] {
+  --color-bg: #eef1f3;
+  --color-bg-dim: #e2e6e9;
+  --color-text: #121416;
+  --color-text-dim: rgba(18, 20, 22, 0.65);
+  --color-border: rgba(18, 20, 22, 0.15);
+  --color-border-dim: rgba(18, 20, 22, 0.08);
+  --color-shadow: rgba(0, 0, 0, 0.08);
+  --preloader-bg: #121416; /* Preloader remains dark for entry */
+  --card-bg: #f8fafc;
+}
+
+/* ==========================================================================
+   Base Styles & Reset
+   ========================================================================== */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html, body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: clamp(13px, 0.15vw + 13px, 15px); /* Professional adaptive scaling */
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color var(--animation-inout), color var(--animation-inout);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  hyphens: auto;
+}
+
+/* Global Image Reset */
+img, svg, video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+/* ==========================================================================
+   Preloader Animations & Styling
+   ========================================================================== */
+
+.preloader-w {
+  position: fixed;
+  inset: 0;
+  background-color: var(--preloader-bg);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 3rem;
+  color: #eef1f3;
+  transition: transform 1.2s var(--cubic-inout), opacity 1.2s var(--cubic-inout);
+}
+
+.preloader-logo-w {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.preloader-logo-transform {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preloader-bird-container {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.preloader-bird-large {
+  height: 140px; 
+  width: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  opacity: 0; 
+  will-change: opacity;
+}
+
+.preloader-brand-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.preloader-sketch-w {
+  position: absolute;
+  bottom: -18px; 
+  left: -20px;
+  width: calc(100% + 40px);
+  height: 30px;
+  pointer-events: none;
+}
+
+.sketch-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.sketch-path {
+  stroke-dasharray: 600;
+  stroke-dashoffset: 600;
+  animation: drawSketch 2s var(--cubic-inout) forwards;
+  animation-delay: 0.5s;
+}
+
+.preloader-text-w {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid rgba(238, 241, 243, 0.1);
+  padding-top: 2rem;
+}
+
+.text-preloader-percent {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 6vw, 6rem);
+  font-weight: 800;
+  line-height: 1;
+}
+
+.text-preloader-tagline {
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  max-width: 300px;
+  text-align: right;
+  opacity: 0.8;
+}
+
+@keyframes drawSketch {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+</style><link as="style" href="style.css" onload="this.onload=null;this.rel='stylesheet'" rel="preload"/><noscript><link href="style.css" rel="stylesheet"/></noscript>
+<noscript>
+<style>
       #preloader { display: none !important; }
       #app-wrapper { opacity: 1 !important; visibility: visible !important; }
     </style>
-  </noscript>
+</noscript>
 </head>
 <body>
-
-  <div id="preloader" class="preloader-w">
-    <div class="preloader-logo-w">
-      <div class="preloader-logo-transform">
-        <div class="preloader-bird-container">
-          <img src="assets/images/robin-bird.jpg" id="preloader-bird" alt="Robin Bird Logo" class="preloader-bird-large">
-        </div>
-        
-        <div class="preloader-brand-wrapper">
-          <div class="preloader-brand-logo">
-            <span>ROBINK.ME</span>
-          </div>
-          <div class="preloader-sketch-w">
-            <svg class="sketch-svg" viewBox="0 0 200 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path class="sketch-path" d="M10 20 Q 100 35, 190 20" stroke="var(--accent-red)" stroke-width="3" stroke-linecap="round"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="preloader-text-w">
-      <div id="preloader-percent" class="text-preloader-percent">00</div>
-      <div class="text-preloader-tagline">Şirketler İçin Otonom Süreçler İşletim Sistemi</div>
-    </div>
-  </div>
-
-  <div id="app-wrapper" class="page-w" style="opacity: 0; visibility: hidden;">
-    
-    <header class="nav-w">
-      <div class="nav-container">
-        <a href="index.html" class="nav-brand">
-          <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
-          <span class="brand-text">ROBINK.ME</span>
-        </a>
-
-        <div class="nav-clocks-row">
-          <div class="clock-item active" data-tz="Europe/Istanbul" data-label="IST">
-            <span class="bracket">(</span><span class="clock-label">IST</span><span class="bracket">)</span>
-            <span class="clock-time" id="time-ist">00:00:00</span>
-          </div>
-          <div class="clock-item" data-tz="Europe/London" data-label="LON">
-            <span class="bracket">(</span><span class="clock-label">LON</span><span class="bracket">)</span>
-            <span class="clock-time" id="time-lon">00:00:00</span>
-          </div>
-          <div class="clock-item" data-tz="America/New_York" data-label="NYC">
-            <span class="bracket">(</span><span class="clock-label">NYC</span><span class="bracket">)</span>
-            <span class="clock-time" id="time-nyc">00:00:00</span>
-          </div>
-          <div class="clock-item" data-tz="Asia/Tokyo" data-label="TYO">
-            <span class="bracket">(</span><span class="clock-label">TYO</span><span class="bracket">)</span>
-            <span class="clock-time" id="time-tyo">00:00:00</span>
-          </div>
-        </div>
-
-        <div class="nav-actions">
-          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Renk Modu Değiştir / Toggle Color Theme">
-            <!-- Moon Icon (Crescent Moon SVG) -->
-            <svg class="theme-icon moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-            <!-- Sun Icon (Sun SVG) -->
-            <svg class="theme-icon sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="4.22" x2="19.78" y2="5.64"></line>
-            </svg>
-          </button>
-
-          <button id="menu-trigger" class="nav-menu-btn" aria-label="Menu">
-            <span class="menu-text-open">Menu</span>
-            <span class="menu-text-close" style="display: none;">Close</span>
-          </button>
-        </div>
-      </div>
-    </header>
-
-    <div id="menu-drawer" class="nav-menu">
-      <div class="nav-menu-layout">
-        <ul class="nav-links-list">
-          <li>
-            <a href="#" class="nav-link-item" data-action="about" role="button">
-              <span class="link-bracket">( )</span>
-              <span class="link-text">Hakkımızda / About Us</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link-item color-red" data-section="workflows" role="button">
-              <span class="link-bracket">([O])</span>
-              <span class="link-text">Otonom Süreçler / Autonomous Workflows</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link-item color-green" data-section="agents" role="button">
-              <span class="link-bracket">([A])</span>
-              <span class="link-text">Yapay Zeka Ajanları / AI Agents</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link-item color-blue" data-section="integration" role="button">
-              <span class="link-bracket">([E])</span>
-              <span class="link-text">Süreç Entegrasyonu / Process Integration</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="nav-link-item color-yellow" data-section="analytics" role="button">
-              <span class="link-bracket">([L])</span>
-              <span class="link-text">Operasyonel Analitik / Operational Analytics</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="infographics.html" class="nav-link-item">
-              <span class="link-bracket">(İ)</span>
-              <span class="link-text">İnfografiklerimiz / Our Infographics</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-          <li>
-            <a href="contact.html" class="nav-link-item">
-              <span class="link-bracket">(C)</span>
-              <span class="link-text">İletişim / Contact</span>
-              <svg class="nav-link-sketch" viewBox="0 0 200 20" fill="none">
-                <path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-            </a>
-          </li>
-        </ul>
-        <div class="menu-footer">
-          <span class="menu-copyright">
+<div class="preloader-w" id="preloader">
+<div class="preloader-logo-w">
+<div class="preloader-logo-transform">
+<div class="preloader-bird-container">
+<img alt="Robin Bird Logo" class="preloader-bird-large" id="preloader-bird" src="assets/images/robin-bird.jpg"/>
+</div>
+<div class="preloader-brand-wrapper">
+<div class="preloader-brand-logo">
+<span>ROBINK.ME</span>
+</div>
+<div class="preloader-sketch-w">
+<svg class="sketch-svg" fill="none" viewbox="0 0 200 40" xmlns="http://www.w3.org/2000/svg">
+<path class="sketch-path" d="M10 20 Q 100 35, 190 20" stroke="var(--accent-red)" stroke-linecap="round" stroke-width="3"></path>
+</svg>
+</div>
+</div>
+</div>
+</div>
+<div class="preloader-text-w">
+<div class="text-preloader-percent" id="preloader-percent">00</div>
+<div class="text-preloader-tagline">Şirketler İçin Otonom Süreçler İşletim Sistemi</div>
+</div>
+</div>
+<div class="page-w" id="app-wrapper" style="opacity: 0; visibility: hidden;">
+<header class="nav-w">
+<div class="nav-container">
+<a class="nav-brand" href="index.html">
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
+<span class="brand-text">ROBINK.ME</span>
+</a>
+<div class="nav-clocks-row">
+<div class="clock-item active" data-label="IST" data-tz="Europe/Istanbul">
+<span class="bracket">(</span><span class="clock-label">IST</span><span class="bracket">)</span>
+<span class="clock-time" id="time-ist">00:00:00</span>
+</div>
+<div class="clock-item" data-label="LON" data-tz="Europe/London">
+<span class="bracket">(</span><span class="clock-label">LON</span><span class="bracket">)</span>
+<span class="clock-time" id="time-lon">00:00:00</span>
+</div>
+<div class="clock-item" data-label="NYC" data-tz="America/New_York">
+<span class="bracket">(</span><span class="clock-label">NYC</span><span class="bracket">)</span>
+<span class="clock-time" id="time-nyc">00:00:00</span>
+</div>
+<div class="clock-item" data-label="TYO" data-tz="Asia/Tokyo">
+<span class="bracket">(</span><span class="clock-label">TYO</span><span class="bracket">)</span>
+<span class="clock-time" id="time-tyo">00:00:00</span>
+</div>
+</div>
+<div class="nav-actions">
+<button aria-label="Renk Modu Değiştir / Toggle Color Theme" class="theme-toggle-btn" id="theme-toggle">
+<!-- Moon Icon (Crescent Moon SVG) -->
+<svg class="theme-icon moon-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+</svg>
+<!-- Sun Icon (Sun SVG) -->
+<svg class="theme-icon sun-icon" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="5"></circle>
+<line x1="12" x2="12" y1="1" y2="3"></line>
+<line x1="12" x2="12" y1="21" y2="23"></line>
+<line x1="4.22" x2="5.64" y1="4.22" y2="5.64"></line>
+<line x1="18.36" x2="19.78" y1="18.36" y2="19.78"></line>
+<line x1="1" x2="3" y1="12" y2="12"></line>
+<line x1="21" x2="23" y1="12" y2="12"></line>
+<line x1="4.22" x2="5.64" y1="19.78" y2="18.36"></line>
+<line x1="18.36" x2="19.78" y1="4.22" y2="5.64"></line>
+</svg>
+</button>
+<button aria-label="Menu" class="nav-menu-btn" id="menu-trigger">
+<span class="menu-text-open">Menu</span>
+<span class="menu-text-close" style="display: none;">Close</span>
+</button>
+</div>
+</div>
+</header>
+<div class="nav-menu" id="menu-drawer">
+<div class="nav-menu-layout">
+<ul class="nav-links-list">
+<li>
+<a class="nav-link-item" data-action="about" href="about.html" role="button">
+<span class="link-bracket">( )</span>
+<span class="link-text">Hakkımızda / About Us</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="nav-link-item color-red" data-section="workflows" href="#" role="button">
+<span class="link-bracket">([O])</span>
+<span class="link-text">Otonom Süreçler / Autonomous Workflows</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="nav-link-item color-green" data-section="agents" href="#" role="button">
+<span class="link-bracket">([A])</span>
+<span class="link-text">Yapay Zeka Ajanları / AI Agents</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="nav-link-item color-blue" data-section="integration" href="#" role="button">
+<span class="link-bracket">([E])</span>
+<span class="link-text">Süreç Entegrasyonu / Process Integration</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="nav-link-item color-yellow" data-section="analytics" href="#" role="button">
+<span class="link-bracket">([L])</span>
+<span class="link-text">Operasyonel Analitik / Operational Analytics</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+<li>
+<a class="nav-link-item" href="infographics.html">
+<span class="link-bracket">(İ)</span>
+<span class="link-text">İnfografiklerimiz / Our Infographics</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+<li><a class="nav-link-item" href="faq.html"><span class="link-bracket">(S)</span><span class="link-text">Sıkça Sorulan Sorular / FAQ</span><svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20"><path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path></svg></a></li><li>
+<a class="nav-link-item" href="contact.html">
+<span class="link-bracket">(C)</span>
+<span class="link-text">İletişim / Contact</span>
+<svg class="nav-link-sketch" fill="none" viewbox="0 0 200 20">
+<path d="M5 10 C 60 2, 120 2, 195 10" stroke="currentColor" stroke-linecap="round" stroke-width="2"></path>
+</svg>
+</a>
+</li>
+</ul>
+<div class="menu-footer">
+<span class="menu-copyright">
             © 2026 
-            <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+            <img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
             ROBINK.ME
           </span>
-          <a href="#" class="menu-sublink js-terms-trigger">Kullanım Koşulları / Terms of Use</a>
-          <a href="#" class="menu-sublink js-privacy-trigger">Gizlilik Politikası / Privacy Policy</a>
-        </div>
-      </div>
-    </div>
-
-    <div id="manifesto-drawer" class="manifesto-w">
-      <div class="manifesto-layout">
-        <div class="manifesto-header">
-          <h2 class="manifesto-title">MANIFESTO</h2>
-          <button id="manifesto-close" class="btn-close" aria-label="Manifestoyu Kapat">Kapat</button>
-        </div>
-        <div class="manifesto-content">
-          <div class="bilingual-wrapper with-separator">
-            <div class="bilingual-col">
-              <span class="lang-indicator">TR</span>
-              <p class="text-manifesto-sub">
-                <strong>
-                  <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+<a class="menu-sublink js-terms-trigger" href="terms.html">Kullanım Koşulları / Terms of Use</a>
+<a class="menu-sublink js-privacy-trigger" href="privacy.html">Gizlilik Politikası / Privacy Policy</a>
+</div>
+</div>
+</div>
+<div class="manifesto-w" id="manifesto-drawer">
+<div class="manifesto-layout">
+<div class="manifesto-header">
+<h2 class="manifesto-title">MANIFESTO</h2>
+<button aria-label="Manifestoyu Kapat" class="btn-close" id="manifesto-close">Kapat</button>
+</div>
+<div class="manifesto-content">
+<article class="bilingual-wrapper with-separator">
+<div class="bilingual-col">
+<span class="lang-indicator">TR</span>
+<p class="text-manifesto-sub">
+<strong>
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
                   RobinK.me: Kurumsal Otonom İş Süreçleri İşletim Sistemi
                 </strong>
-              </p>
-              <p class="text-manifesto-body">
+</p>
+<p class="text-manifesto-body">
                 Geleneksel kurumsal yapılar hantallaşırken ve veri yığınları arasında boğulurken, şirketler gerçek zamanlı kararlar alıp eyleme geçebilecekleri, otonom ve akıllı bir sisteme ihtiyaç duyuyor.
               </p>
-              <p class="text-manifesto-body">
+<p class="text-manifesto-body">
                 Yapay zekanın yükselişiyle birlikte iş gücü algısı değişti. Artık departmanlar arası entegrasyonlar, karmaşık veri analizleri ve tekrarlayan süreçler insanlar yerine yapay zeka ajanları tarafından yönetiliyor. Şirketler bu dönüşüme uyum sağlamak durumunda, ancak mevcut dijital altyapıları henüz buna hazır değil.
               </p>
-              <p class="text-manifesto-body">
+<p class="text-manifesto-body">
                 RobinK.me bu dönüşümün anahtarıdır. Bizler, kurumsal süreçleri geleneksel Standart Operasyon Prosedürleri (SOP) seviyesinden çıkarıp tamamen otonom ajanlarla yönetilen esnek, akıllı ve kendi kendini optimize eden uçtan uca bir işletim sistemine dönüştürüyoruz.
               </p>
-              
-              <h3 class="manifesto-section-title">Çarkın 4 Ana Gücü (Flywheel)</h3>
-              <p class="text-manifesto-body">
+<h3 class="manifesto-section-title">Çarkın 4 Ana Gücü (Flywheel)</h3>
+<p class="text-manifesto-body">
                 Şirketler bu otonom ekosisteme herhangi bir aşamadan dahil olabilir; biz onların tüm iş süreçlerini birbirine bağlarız:
               </p>
-              <ul class="manifesto-list">
-                <li><strong>Otonom Süreçler:</strong> Şirket içi iş akışlarının SOP'lara göre otonom hale getirilmesi.</li>
-                <li><strong>Yapay Zeka Ajanları:</strong> Rutin iş yükünü üstlenen, akıl yürütebilen otonom asistanlar.</li>
-                <li><strong>Süreç Entegrasyonu:</strong> Farklı sistemlerin, API'lerin ve veritabanlarının kusursuz koordinasyonu.</li>
-                <li><strong>Operasyonel Analitik:</strong> Süreç verimliliğini anlık olarak izleyip optimize eden veri motoru.</li>
-              </ul>
-              <div class="manifesto-signature-w">
-                <svg class="signature-svg" viewBox="0 0 150 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path class="signature-path" d="M12 25 Q 30 10, 45 35 T 80 15 T 110 30 T 140 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="signature-caption">RobinK.me Ekibi</span>
-              </div>
-            </div>
-            
-            <div class="bilingual-col">
-              <span class="lang-indicator">EN</span>
-              <p class="text-manifesto-sub">
-                <strong>
-                  <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+<ul class="manifesto-list">
+<li><strong>Otonom Süreçler:</strong> Şirket içi iş akışlarının SOP'lara göre otonom hale getirilmesi.</li>
+<li><strong>Yapay Zeka Ajanları:</strong> Rutin iş yükünü üstlenen, akıl yürütebilen otonom asistanlar.</li>
+<li><strong>Süreç Entegrasyonu:</strong> Farklı sistemlerin, API'lerin ve veritabanlarının kusursuz koordinasyonu.</li>
+<li><strong>Operasyonel Analitik:</strong> Süreç verimliliğini anlık olarak izleyip optimize eden veri motoru.</li>
+</ul>
+<div class="manifesto-signature-w">
+<svg class="signature-svg" fill="none" viewbox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+<path class="signature-path" d="M12 25 Q 30 10, 45 35 T 80 15 T 110 30 T 140 20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<span class="signature-caption">RobinK.me Ekibi</span>
+</div>
+</div>
+<div class="bilingual-col">
+<span class="lang-indicator">EN</span>
+<p class="text-manifesto-sub">
+<strong>
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
                   RobinK.me: Autonomous Work Processes Operating System for Enterprises
                 </strong>
-              </p>
-              <p class="text-manifesto-body">
+</p>
+<p class="text-manifesto-body">
                 As traditional corporate structures become sluggish and drown in heaps of data, companies need an autonomous and intelligent system where they can take action in real-time.
               </p>
-              <p class="text-manifesto-body">
+<p class="text-manifesto-body">
                 With the rise of artificial intelligence, the perception of workforce has changed. Now, inter-departmental integrations, complex data analysis, and repetitive processes are managed by AI agents instead of humans. Companies must adapt to this transformation, yet current digital infrastructures are not ready.
               </p>
-              <p class="text-manifesto-body">
+<p class="text-manifesto-body">
                 RobinK.me is the key to this transformation. We take corporate processes out of Standard Operating Procedures (SOPs) and transform them into a flexible, smart, and self-optimizing end-to-end operating system fully managed by autonomous agents.
               </p>
-              
-              <h3 class="manifesto-section-title">The 4 Core Pillars (Flywheel)</h3>
-              <p class="text-manifesto-body">
+<h3 class="manifesto-section-title">The 4 Core Pillars (Flywheel)</h3>
+<p class="text-manifesto-body">
                 Companies can integrate into this autonomous ecosystem at any stage; we connect all of their business processes:
               </p>
-              <ul class="manifesto-list">
-                <li><strong>Autonomous Processes:</strong> Automation of internal workflows according to SOPs.</li>
-                <li><strong>AI Agents:</strong> Autonomous assistants that handle routine workloads and possess reasoning capabilities.</li>
-                <li><strong>Process Integration:</strong> Seamless coordination of different systems, APIs, and databases.</li>
-                <li><strong>Operational Analytics:</strong> Data engine that monitors process efficiency in real-time and optimizes it.</li>
-              </ul>
-              <div class="manifesto-signature-w">
-                <svg class="signature-svg" viewBox="0 0 150 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path class="signature-path" d="M12 25 Q 30 10, 45 35 T 80 15 T 110 30 T 140 20" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span class="signature-caption">RobinK.me Team</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="terms-drawer" class="manifesto-w">
-      <div class="manifesto-layout">
-        <div class="manifesto-header">
-          <h2 class="manifesto-title">KOŞULLAR / TERMS</h2>
-          <button id="terms-close" class="btn-close" aria-label="Koşulları Kapat">Kapat</button>
-        </div>
-        <div class="manifesto-content">
-          <div class="bilingual-wrapper with-separator">
-            <div class="bilingual-col">
-              <span class="lang-indicator">TR</span>
-              <p class="text-manifesto-sub">
-                <strong>
-                  <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
-                  robink.me Kullanım ve Gizlilik Koşulları
-                </strong>
-              </p>
-              <p class="text-manifesto-body">
-                Sitemizi ziyaret ettiğiniz için teşekkürler. robink.me'yi kullanırken geçerli olan kurallar ve veri politikamız oldukça nettir:
-              </p>
-              
-              <h3 class="manifesto-section-title">1. Genel Kurallar</h3>
-              <p class="text-manifesto-body">
-                Sitedeki içerikler, kodlar ve tasarımlar aksi belirtilmedikçe bize aittir. İzinsiz kopyalanması veya ticari amaçla kullanılması yasaktır.
-              </p>
-              <p class="text-manifesto-body">
-                Siteye zarar verecek teknik müdahalelerde bulunmamayı ve siteyi yasalara uygun şekilde kullanmayı kabul edersiniz.
-              </p>
-              <p class="text-manifesto-body">
-                Site "olduğu gibi" sunulmaktadır; teknik kesintilerden veya sunucu kaynaklı gecikmelerden sorumluluk kabul edilmez.
-              </p>
-
-              <h3 class="manifesto-section-title">2. Uluslararası İletişim ve Gizlilik</h3>
-              <p class="text-manifesto-body">
-                Sitemiz dünya çapında erişime açıktır. Uluslararası ziyaretçilerimizle olan iletişimimizde ve veri yönetimimizde, küresel veri koruma standartları (GDPR ve benzeri uluslararası gizlilik ilkeleri) esas alınır.
-              </p>
-              <p class="text-manifesto-body">
-                Kişisel verileriniz rızanız dışında üçüncü taraflarla paylaşılmaz, satılmaz veya kötüye kullanılmaz.
-              </p>
-
-              <h3 class="manifesto-section-title">3. Türkiye İçin KVKK Geçerliliği</h3>
-              <p class="text-manifesto-body">
-                Türkiye'deki kullanıcılarımız ve ziyaretçilerimiz için 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) tam olarak geçerlidir.
-              </p>
-              <p class="text-manifesto-body">
-                Sitemiz üzerinden (iletişim formları, e-bülten vb. yollarla) bizimle paylaştığınız tüm kişisel veriler, KVKK mevzuatına uygun olarak, güvenli bir şekilde işlenir ve saklanır. Dilediğiniz zaman verilerinizin silinmesini veya düzeltilmesini talep etme hakkınız saklıdır.
-              </p>
-
-              <h3 class="manifesto-section-title">4. İletişim</h3>
-              <p class="text-manifesto-body">
-                Kurallar veya verilerinizin işlenmesiyle ilgili her türlü soru ve talebiniz için bizimle iletişime geçebilirsiniz:
-              </p>
-              <p class="text-manifesto-body">
-                <strong>E-posta:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
-              </p>
-            </div>
-            
-            <div class="bilingual-col">
-              <span class="lang-indicator">EN</span>
-              <p class="text-manifesto-sub">
-                <strong>
-                  <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
-                  robink.me Terms of Use & Privacy Policy
-                </strong>
-              </p>
-              <p class="text-manifesto-body">
-                Thank you for visiting our site. The rules and our data policy applicable while using robink.me are very clear:
-              </p>
-              
-              <h3 class="manifesto-section-title">1. General Rules</h3>
-              <p class="text-manifesto-body">
-                Unless otherwise stated, all content, code, and designs on this site belong to us. Unauthorized copying or commercial use is prohibited.
-              </p>
-              <p class="text-manifesto-body">
-                You agree not to make technical interventions that would harm the site and to use the site in compliance with laws.
-              </p>
-              <p class="text-manifesto-body">
-                The site is provided "as is"; no liability is accepted for technical interruptions or server-induced delays.
-              </p>
-
-              <h3 class="manifesto-section-title">2. International Communication and Privacy</h3>
-              <p class="text-manifesto-body">
-                Our website is accessible worldwide. For communications and data management with our international visitors, global data protection standards (GDPR and similar international privacy principles) are taken as basis.
-              </p>
-              <p class="text-manifesto-body">
-                Your personal data will not be shared with third parties, sold, or misused without your consent.
-              </p>
-
-              <h3 class="manifesto-section-title">3. KVKK Applicability for Turkey</h3>
-              <p class="text-manifesto-body">
-                For our users and visitors in Turkey, the Law on the Protection of Personal Data No. 6698 (KVKK) is fully applicable.
-              </p>
-              <p class="text-manifesto-body">
-                All personal data you share with us (via contact forms, e-newsletters, etc.) on our site is processed and stored securely in accordance with KVKK regulations. You reserve the right to request deletion or correction of your data at any time.
-              </p>
-
-              <h3 class="manifesto-section-title">4. Contact</h3>
-              <p class="text-manifesto-body">
-                For any questions and requests regarding the rules or the processing of your data, you can contact us:
-              </p>
-              <p class="text-manifesto-body">
-                <strong>Email:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div id="privacy-drawer" class="manifesto-w">
-      <div class="manifesto-layout">
-        <div class="manifesto-header">
-          <h2 class="manifesto-title">GİZLİLİK / PRIVACY</h2>
-          <button id="privacy-close" class="btn-close" aria-label="Gizliliği Kapat">Kapat</button>
-        </div>
-        <div class="manifesto-content">
-          <div class="bilingual-wrapper with-separator">
-            <div class="bilingual-col">
-              <span class="lang-indicator">TR</span>
-              <p class="text-manifesto-sub">
-                <strong>
-                  <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
-                  robink.me Gizlilik Politikası
-                </strong>
-              </p>
-              <p class="text-manifesto-body">
-                Bu politika, robink.me üzerinde kişisel verilerinizin nasıl işlendiğini, korunduğunu ve veri gizliliği haklarınızı açıklar.
-              </p>
-              
-              <h3 class="manifesto-section-title">1. Toplanan Veriler ve Kullanım Amacı</h3>
-              <p class="text-manifesto-body">
-                Sitemizde veri minimum düzeyde tutulur ve sadece şu amaçlarla işlenir:
-              </p>
-              <p class="text-manifesto-body">
-                <strong>İletişim Verileri:</strong> Bizimle doğrudan e-posta yoluyla paylaştığınız ad, soyad ve e-posta adresi, sadece sorularınıza yanıt vermek amacıyla kullanılır.
-              </p>
-              <p class="text-manifesto-body">
-                <strong>Analiz Verileri:</strong> Sitenin performansını ölçmek amacıyla kişisel olmayan, anonim istatistikler (ziyaretçi sayısı, tıklama oranları) toplanabilir.
-              </p>
-
-              <h3 class="manifesto-section-title">2. Uluslararası Gizlilik Standartları (GDPR)</h3>
-              <p class="text-manifesto-body">
-                Sitemiz dünya genelindeki tüm ziyaretçilerin gizlilik haklarına saygı duyar.
-              </p>
-              <p class="text-manifesto-body">
-                Uluslararası kullanıcılar için küresel veri koruma standartları ve GDPR (Avrupa Genel Veri Koruma Yönetmeliği) esas alınır. Kişisel verileriniz hiçbir şekilde üçüncü taraflara satılmaz, kiralanmaz veya izinsiz paylaşılmaz.
-              </p>
-
-              <h3 class="manifesto-section-title">3. Türkiye İçin KVKK Geçerliliği</h3>
-              <p class="text-manifesto-body">
-                Türkiye’deki kullanıcılarımız için 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) tam olarak geçerlidir. KVKK kapsamında şu haklara sahipsiniz:
-              </p>
-              <ul class="manifesto-list">
-                <li>Verilerinizin işlenip işlenmediğini öğrenme,</li>
-                <li>Verileriniz işlenmişse buna ilişkin bilgi talep etme,</li>
-                <li>Eksik veya yanlış işlenen verilerin düzeltilmesini isteme,</li>
-                <li>Verilerinizin sistemlerimizden tamamen silinmesini veya yok edilmesini talep etme.</li>
-              </ul>
-
-              <h3 class="manifesto-section-title">4. Çerezler (Cookies)</h3>
-              <p class="text-manifesto-body">
-                Sitede yalnızca kullanıcı deneyimini optimize etmek ve site trafiğini anlamak için temel çerezler kullanılır. Çerezleri tarayıcı ayarlarınızdan dilediğiniz zaman engelleyebilirsiniz.
-              </p>
-
-              <h3 class="manifesto-section-title">5. Veri Talepleri ve İletişim</h3>
-              <p class="text-manifesto-body">
-                Gizlilik haklarınızı kullanmak, verilerinizin silinmesini talep etmek veya politika hakkında soru sormak için bizimle iletişime geçebilirsiniz:
-              </p>
-              <p class="text-manifesto-body">
-                <strong>E-posta:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
-              </p>
-            </div>
-            
-            <div class="bilingual-col">
-              <span class="lang-indicator">EN</span>
-              <p class="text-manifesto-sub">
-                <strong>
-                  <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
-                  robink.me Privacy Policy
-                </strong>
-              </p>
-              <p class="text-manifesto-body">
-                This policy explains how your personal data is processed, protected, and your data privacy rights on robink.me.
-              </p>
-              
-              <h3 class="manifesto-section-title">1. Collected Data and Purpose of Use</h3>
-              <p class="text-manifesto-body">
-                Data collection on our site is kept to a minimum and processed only for the following purposes:
-              </p>
-              <p class="text-manifesto-body">
-                <strong>Communication Data:</strong> Your name, surname, and email address shared with us directly via email are only used to answer your questions.
-              </p>
-              <p class="text-manifesto-body">
-                <strong>Analytical Data:</strong> Non-personal, anonymous statistics (number of visitors, click-through rates) may be collected to measure site performance.
-              </p>
-
-              <h3 class="manifesto-section-title">2. International Privacy Standards (GDPR)</h3>
-              <p class="text-manifesto-body">
-                Our site respects the privacy rights of all visitors worldwide.
-              </p>
-              <p class="text-manifesto-body">
-                For international users, global data protection standards and GDPR (European General Data Protection Regulation) are taken as basis. Your personal data is under no circumstances sold, rented, or shared without permission.
-              </p>
-
-              <h3 class="manifesto-section-title">3. KVKK Applicability for Turkey</h3>
-              <p class="text-manifesto-body">
-                For our users in Turkey, the Law on the Protection of Personal Data No. 6698 (KVKK) is fully applicable. Under KVKK, you have the following rights:
-              </p>
-              <ul class="manifesto-list">
-                <li>To learn whether your personal data is processed,</li>
-                <li>To request information if your data has been processed,</li>
-                <li>To request correction of incomplete or incorrectly processed data,</li>
-                <li>To request complete deletion or destruction of your data from our systems.</li>
-              </ul>
-
-              <h3 class="manifesto-section-title">4. Cookies</h3>
-              <p class="text-manifesto-body">
-                Only essential cookies are used on the site to optimize user experience and understand site traffic. You can block cookies at any time through your browser settings.
-              </p>
-
-              <h3 class="manifesto-section-title">5. Data Requests and Contact</h3>
-              <p class="text-manifesto-body">
-                To exercise your privacy rights, request deletion of your data, or ask questions about the policy, you can contact us:
-              </p>
-              <p class="text-manifesto-body">
-                <strong>Email:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <main class="main-content">
-      <section class="hero-section">
-        <div class="hero-grid">
-          
-          <div class="hero-col">
-            <span class="lang-indicator">TR</span>
-            <h1 class="hero-title">
-              ŞİRKETLER İÇİN <br>OTONOM İŞ SÜREÇLERİ <br>İŞLETİM SİSTEMİ.
+<ul class="manifesto-list">
+<li><strong>Autonomous Processes:</strong> Automation of internal workflows according to SOPs.</li>
+<li><strong>AI Agents:</strong> Autonomous assistants that handle routine workloads and possess reasoning capabilities.</li>
+<li><strong>Process Integration:</strong> Seamless coordination of different systems, APIs, and databases.</li>
+<li><strong>Operational Analytics:</strong> Data engine that monitors process efficiency in real-time and optimizes it.</li>
+</ul>
+<div class="manifesto-signature-w">
+<svg class="signature-svg" fill="none" viewbox="0 0 150 50" xmlns="http://www.w3.org/2000/svg">
+<path class="signature-path" d="M12 25 Q 30 10, 45 35 T 80 15 T 110 30 T 140 20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path>
+</svg>
+<span class="signature-caption">RobinK.me Team</span>
+</div>
+</div>
+</article></div>
+</div>
+</div>
+<main class="main-content">
+<section class="hero-section">
+<div class="hero-grid">
+<div class="hero-col">
+<span class="lang-indicator">TR</span>
+<h1 class="hero-title">
+              ŞİRKETLER İÇİN <br/>OTONOM İŞ SÜREÇLERİ <br/>İŞLETİM SİSTEMİ.
             </h1>
-            <p class="hero-desc">
+<p class="hero-desc">
               Güvenin kurumlardan akıllı otonom sistemlere kaydığı bu yeni çağda, şirketlerin iş akışlarını, veri entegrasyonlarını ve yapay zeka ajanlarını tek bir merkezde birleştiriyoruz.
             </p>
-            <div class="hero-buttons">
-              <button id="about-btn-tr" class="btn-primary">
-                <span class="btn-text">Manifestomuz</span>
-                <span class="btn-icon">
-                  <svg class="arrow-svg" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.696.696a.75.75 0 0 1 1.06 0L8.53 5.469a.75.75 0 0 1 0 1.061l-4.772 4.773a.75.75 0 0 1-1.06-1.061L6.937 6 2.696 1.758a.751.751 0 0 1 0-1.062Z" fill="currentColor"/>
-                  </svg>
-                </span>
-                <svg class="btn-circle-progress" viewBox="0 0 36 36">
-                  <path class="circle-progress-path" d="M18 1.5 a16.5 16.5 0 1 1 0 33 a16.5 16.5 0 1 1 0 -33" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="103.6" stroke-dashoffset="103.6"/>
-                </svg>
-              </button>
-            </div>
-          </div>
-
-          <div class="hero-col hero-col-en">
-            <span class="lang-indicator">EN</span>
-            <h1 class="hero-title">
-              AUTONOMOUS <br>PROCESSES <br>SYSTEM <br>FOR ENTERPRISES.
+<div class="hero-buttons">
+<button class="btn-primary" id="about-btn-tr">
+<span class="btn-text">Manifestomuz</span>
+<span class="btn-icon">
+<svg class="arrow-svg" fill="none" viewbox="0 0 11 12" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.696.696a.75.75 0 0 1 1.06 0L8.53 5.469a.75.75 0 0 1 0 1.061l-4.772 4.773a.75.75 0 0 1-1.06-1.061L6.937 6 2.696 1.758a.751.751 0 0 1 0-1.062Z" fill="currentColor"></path>
+</svg>
+</span>
+<svg class="btn-circle-progress" viewbox="0 0 36 36">
+<path class="circle-progress-path" d="M18 1.5 a16.5 16.5 0 1 1 0 33 a16.5 16.5 0 1 1 0 -33" fill="none" stroke="currentColor" stroke-dasharray="103.6" stroke-dashoffset="103.6" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+</div>
+<div class="hero-col hero-col-en">
+<span class="lang-indicator">EN</span>
+<h1 class="hero-title">
+              AUTONOMOUS <br/>PROCESSES <br/>SYSTEM <br/>FOR ENTERPRISES.
             </h1>
-            <p class="hero-desc">
+<p class="hero-desc">
               In this new era where trust shifts from institutions to intelligent autonomous systems, we unify enterprise workflows, data integrations, and AI agents into a single center.
             </p>
-            <div class="hero-buttons">
-              <button id="about-btn-en" class="btn-primary">
-                <span class="btn-text">Our Manifesto</span>
-                <span class="btn-icon">
-                  <svg class="arrow-svg" viewBox="0 0 11 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M2.696.696a.75.75 0 0 1 1.06 0L8.53 5.469a.75.75 0 0 1 0 1.061l-4.772 4.773a.75.75 0 0 1-1.06-1.061L6.937 6 2.696 1.758a.751.751 0 0 1 0-1.062Z" fill="currentColor"/>
-                  </svg>
-                </span>
-                <svg class="btn-circle-progress" viewBox="0 0 36 36">
-                  <path class="circle-progress-path" d="M18 1.5 a16.5 16.5 0 1 1 0 33 a16.5 16.5 0 1 1 0 -33" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="103.6" stroke-dashoffset="103.6"/>
-                </svg>
-              </button>
-              </div>
-            </div>
-
-          </div>
-          
-        </section>
-
-        <div id="interactive-portal" class="portal-split-layout">
-          
-          <!-- Sticky Left Column (Flywheel) -->
-          <div class="portal-left-col">
-            <div class="flywheel-container" style="margin: 0 auto; width: 100%; max-width: 450px;">
-            <div class="flywheel-interactive-w">
-              <svg class="flywheel-svg" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="250" cy="250" r="230" stroke="var(--color-border-dim)" stroke-width="1" stroke-dasharray="5 5"/>
-                
-                <circle cx="250" cy="250" r="160" stroke="var(--color-border-dim)" stroke-width="1.5"/>
-
-                <g class="flywheel-segment" data-segment="workflows" tabindex="0">
-                  <path d="M250 250 L 130 130 A 170 170 0 0 1 250 80 Z" class="segment-fill workflows-fill"/>
-                  <circle cx="190" cy="140" r="25" class="segment-node workflows-node" />
-                  <text x="190" y="140" class="segment-text" text-anchor="middle" dominant-baseline="central">SÜREÇLER</text>
-                  <path class="segment-line-sketch" d="M190 140 C 170 90, 100 80, 80 120" stroke="var(--accent-red)" stroke-width="2" fill="none" />
-                </g>
-
-                <g class="flywheel-segment" data-segment="agents" tabindex="0">
-                  <path d="M250 250 L 250 80 A 170 170 0 0 1 370 130 Z" class="segment-fill agents-fill"/>
-                  <circle cx="310" cy="140" r="25" class="segment-node agents-node" />
-                  <text x="310" y="140" class="segment-text" text-anchor="middle" dominant-baseline="central">AJANLAR</text>
-                  <path class="segment-line-sketch" d="M310 140 C 330 90, 400 80, 420 120" stroke="var(--accent-green)" stroke-width="2" fill="none" />
-                </g>
-
-                <g class="flywheel-segment" data-segment="integration" tabindex="0">
-                  <path d="M250 250 L 370 370 A 170 170 0 0 1 250 420 Z" class="segment-fill integration-fill"/>
-                  <circle cx="310" cy="360" r="25" class="segment-node integration-node" />
-                  <text x="310" y="360" class="segment-text" text-anchor="middle" dominant-baseline="central">ENTEGRASYON</text>
-                  <path class="segment-line-sketch" d="M310 360 C 330 410, 400 420, 420 380" stroke="var(--accent-blue)" stroke-width="2" fill="none" />
-                </g>
-
-                <g class="flywheel-segment" data-segment="analytics" tabindex="0">
-                  <path d="M250 250 L 250 420 A 170 170 0 0 1 130 370 Z" class="segment-fill analytics-fill"/>
-                  <circle cx="190" cy="360" r="25" class="segment-node analytics-node" />
-                  <text x="190" y="360" class="segment-text" text-anchor="middle" dominant-baseline="central">ANALİTİK</text>
-                  <path class="segment-line-sketch" d="M190 360 C 170 410, 100 420, 80 380" stroke="var(--accent-yellow)" stroke-width="2" fill="none" />
-                </g>
-
-                <circle cx="250" cy="250" r="50" class="flywheel-center-core"/>
-                <circle cx="250" cy="250" r="30" class="flywheel-center-pulse"/>
-                <text x="250" y="250" class="flywheel-center-text" text-anchor="middle" dominant-baseline="central">HERMES OS</text>
-              </svg>
-            </div>
-          </div>
-        </div> <!-- End portal-left-col -->
-
-        <!-- Scrollable Right Column -->
-        <div class="portal-right-col">
-          <div id="flywheel-info-card" class="flywheel-info-card" style="margin: 0 auto; width: 100%;">
-            <div class="bilingual-wrapper">
-              <div class="bilingual-col">
-                <span class="lang-indicator">TR</span>
-                <h4 id="info-card-title-tr" class="info-card-title">OTONOM EKOSİSTEM</h4>
-                <p id="info-card-desc-tr" class="info-card-desc">Çarktaki bölümlere tıklayarak veya üzerine gelerek kurumsal otonom süreçleri keşfedin. Tıkladığınızda ilgili aşama sunumları listelenecektir.</p>
-              </div>
-              <div class="bilingual-col">
-                <span class="lang-indicator">EN</span>
-                <h4 id="info-card-title-en" class="info-card-title">AUTONOMOUS ECOSYSTEM</h4>
-                <p id="info-card-desc-en" class="info-card-desc">Discover corporate autonomous processes by clicking or hovering on the wheel segments. Clicking will list the related phase presentations.</p>
-              </div>
-            </div>
-          </div>
-        </div> <!-- End portal-right-col -->
-      </div> <!-- End portal-split-layout -->
-
-      <section id="presentation-deck" class="presentation-section">
-        <div class="section-header-block" style="max-width: 100%;">
-          <div class="bilingual-wrapper with-separator">
-            <div class="bilingual-col">
-              <span class="section-tag">[Otonom Dönüşüm]</span>
-              <h2 class="section-heading-title">14 Adımlı Kurumsal Otonomizasyon Sunumu</h2>
-              <p class="section-heading-desc">Aşağıdaki interaktif panelden, şirketlerin otonom süreçlere geçiş rehberinin 14 sayfalık video ve görsel sunumunu adım adım inceleyin.</p>
-            </div>
-            <div class="bilingual-col">
-              <span class="section-tag">[Autonomous Transformation]</span>
-              <h2 class="section-heading-title">14-Step Corporate Autonomization Presentation</h2>
-              <p class="section-heading-desc">Explore the 14-page video and visual presentation of the guide for companies transitioning to autonomous processes step by step from the interactive panel below.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="presentation-layout">
-          <div class="presentation-nav">
-            <h4 class="deck-nav-title">Aşama Adımları / Phase Steps</h4>
-            <div class="step-nav-wrapper">
-              <button class="step-nav-btn active" data-step="1" data-phase="workflows">
-                <span class="step-num">01</span>
-                <span class="step-title">
-                  <span>Giriş ve Vizyon</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Introduction & Vision</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="2" data-phase="workflows">
-                <span class="step-num">02</span>
-                <span class="step-title">
-                  <span>Geleneksel SOP Analizi</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Traditional SOP Analysis</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="3" data-phase="workflows">
-                <span class="step-num">03</span>
-                <span class="step-title">
-                  <span>Otonom Modelleme</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Autonomous Modeling</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="4" data-phase="workflows">
-                <span class="step-num">04</span>
-                <span class="step-title">
-                  <span>İş Akışı Optimizasyonu</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Workflow Optimization</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="5" data-phase="agents">
-                <span class="step-num">05</span>
-                <span class="step-title">
-                  <span>Yapay Zeka Ajan Seçimi</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">AI Agent Selection</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="6" data-phase="agents">
-                <span class="step-num">06</span>
-                <span class="step-title">
-                  <span>Bilişsel Görev Dağılımı</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Cognitive Task Allocation</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="7" data-phase="agents">
-                <span class="step-num">07</span>
-                <span class="step-title">
-                  <span>Ajanlar Arası İletişim</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Inter-Agent Communication</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="8" data-phase="agents">
-                <span class="step-num">08</span>
-                <span class="step-title">
-                  <span>İş Gücü Entegrasyonu</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Workforce Integration</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="9" data-phase="integration">
-                <span class="step-num">09</span>
-                <span class="step-title">
-                  <span>API ve Bağlantı Altyapısı</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">API & Connectivity Infrastructure</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="10" data-phase="integration">
-                <span class="step-num">10</span>
-                <span class="step-title">
-                  <span>Veri Ambarı Entegrasyonu</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Data Warehouse Integration</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="11" data-phase="integration">
-                <span class="step-num">11</span>
-                <span class="step-title">
-                  <span>Güvenlik ve İzin Protokolleri</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Security & Permission Protocols</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="12" data-phase="analytics">
-                <span class="step-num">12</span>
-                <span class="step-title">
-                  <span>Verim ve Metrik İzleme</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Performance & Metric Monitoring</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="13" data-phase="analytics">
-                <span class="step-num">13</span>
-                <span class="step-title">
-                  <span>Hata Yönetimi ve Loglama</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Error Management & Logging</small>
-                </span>
-              </button>
-              <button class="step-nav-btn" data-step="14" data-phase="analytics">
-                <span class="step-num">14</span>
-                <span class="step-title">
-                  <span>Sürekli Otonom Gelişim</span>
-                  <small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Continuous Autonomous Evolution</small>
-                </span>
-              </button>
-            </div>
-          </div>
-
-          <div class="presentation-showcase">
-            <div class="deck-card">
-              <div class="video-container-w">
-                <img id="deck-gif" src="assets/videos/1-sayfa.gif" alt="Otonom Süreç Sunumu / Autonomous Process Presentation" loading="lazy" width="800" height="450">
-              </div>
-
-              <div class="deck-meta">
-                <div class="bilingual-wrapper with-separator">
-                  <div class="bilingual-col">
-                    <span class="lang-indicator">TR</span>
-                    <div class="deck-meta-top">
-                      <span id="deck-phase-tag-tr" class="deck-phase-tag red-tag">Otonom Süreçler</span>
-                      <span id="deck-step-tag-tr" class="deck-step-tag">Adım 01 / 14</span>
-                    </div>
-                    <h3 id="deck-title-tr" class="deck-title">Giriş ve Vizyon</h3>
-                    <p id="deck-desc-tr" class="deck-desc">
+<div class="hero-buttons">
+<button class="btn-primary" id="about-btn-en">
+<span class="btn-text">Our Manifesto</span>
+<span class="btn-icon">
+<svg class="arrow-svg" fill="none" viewbox="0 0 11 12" xmlns="http://www.w3.org/2000/svg">
+<path d="M2.696.696a.75.75 0 0 1 1.06 0L8.53 5.469a.75.75 0 0 1 0 1.061l-4.772 4.773a.75.75 0 0 1-1.06-1.061L6.937 6 2.696 1.758a.751.751 0 0 1 0-1.062Z" fill="currentColor"></path>
+</svg>
+</span>
+<svg class="btn-circle-progress" viewbox="0 0 36 36">
+<path class="circle-progress-path" d="M18 1.5 a16.5 16.5 0 1 1 0 33 a16.5 16.5 0 1 1 0 -33" fill="none" stroke="currentColor" stroke-dasharray="103.6" stroke-dashoffset="103.6" stroke-width="1.5"></path>
+</svg>
+</button>
+</div>
+</div>
+</div>
+</section>
+<div class="portal-split-layout" id="interactive-portal">
+<!-- Sticky Left Column (Flywheel) -->
+<div class="portal-left-col">
+<div class="flywheel-container" style="margin: 0 auto; width: 100%; max-width: 450px;">
+<div class="flywheel-interactive-w">
+<svg class="flywheel-svg" fill="none" viewbox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+<circle cx="250" cy="250" r="230" stroke="var(--color-border-dim)" stroke-dasharray="5 5" stroke-width="1"></circle>
+<circle cx="250" cy="250" r="160" stroke="var(--color-border-dim)" stroke-width="1.5"></circle>
+<g class="flywheel-segment" data-segment="workflows" tabindex="0">
+<path class="segment-fill workflows-fill" d="M250 250 L 130 130 A 170 170 0 0 1 250 80 Z"></path>
+<circle class="segment-node workflows-node" cx="190" cy="140" r="25"></circle>
+<text class="segment-text" dominant-baseline="central" text-anchor="middle" x="190" y="140">SÜREÇLER</text>
+<path class="segment-line-sketch" d="M190 140 C 170 90, 100 80, 80 120" fill="none" stroke="var(--accent-red)" stroke-width="2"></path>
+</g>
+<g class="flywheel-segment" data-segment="agents" tabindex="0">
+<path class="segment-fill agents-fill" d="M250 250 L 250 80 A 170 170 0 0 1 370 130 Z"></path>
+<circle class="segment-node agents-node" cx="310" cy="140" r="25"></circle>
+<text class="segment-text" dominant-baseline="central" text-anchor="middle" x="310" y="140">AJANLAR</text>
+<path class="segment-line-sketch" d="M310 140 C 330 90, 400 80, 420 120" fill="none" stroke="var(--accent-green)" stroke-width="2"></path>
+</g>
+<g class="flywheel-segment" data-segment="integration" tabindex="0">
+<path class="segment-fill integration-fill" d="M250 250 L 370 370 A 170 170 0 0 1 250 420 Z"></path>
+<circle class="segment-node integration-node" cx="310" cy="360" r="25"></circle>
+<text class="segment-text" dominant-baseline="central" text-anchor="middle" x="310" y="360">ENTEGRASYON</text>
+<path class="segment-line-sketch" d="M310 360 C 330 410, 400 420, 420 380" fill="none" stroke="var(--accent-blue)" stroke-width="2"></path>
+</g>
+<g class="flywheel-segment" data-segment="analytics" tabindex="0">
+<path class="segment-fill analytics-fill" d="M250 250 L 250 420 A 170 170 0 0 1 130 370 Z"></path>
+<circle class="segment-node analytics-node" cx="190" cy="360" r="25"></circle>
+<text class="segment-text" dominant-baseline="central" text-anchor="middle" x="190" y="360">ANALİTİK</text>
+<path class="segment-line-sketch" d="M190 360 C 170 410, 100 420, 80 380" fill="none" stroke="var(--accent-yellow)" stroke-width="2"></path>
+</g>
+<circle class="flywheel-center-core" cx="250" cy="250" r="50"></circle>
+<circle class="flywheel-center-pulse" cx="250" cy="250" r="30"></circle>
+<text class="flywheel-center-text" dominant-baseline="central" text-anchor="middle" x="250" y="250">HERMES OS</text>
+</svg>
+</div>
+</div>
+</div> <!-- End portal-left-col -->
+<!-- Scrollable Right Column -->
+<div class="portal-right-col">
+<div class="flywheel-info-card" id="flywheel-info-card" style="margin: 0 auto; width: 100%;">
+<article class="bilingual-wrapper">
+<div class="bilingual-col">
+<span class="lang-indicator">TR</span>
+<h4 class="info-card-title" id="info-card-title-tr">OTONOM EKOSİSTEM</h4>
+<p class="info-card-desc" id="info-card-desc-tr">Çarktaki bölümlere tıklayarak veya üzerine gelerek kurumsal otonom süreçleri keşfedin. Tıkladığınızda ilgili aşama sunumları listelenecektir.</p>
+</div>
+<div class="bilingual-col">
+<span class="lang-indicator">EN</span>
+<h4 class="info-card-title" id="info-card-title-en">AUTONOMOUS ECOSYSTEM</h4>
+<p class="info-card-desc" id="info-card-desc-en">Discover corporate autonomous processes by clicking or hovering on the wheel segments. Clicking will list the related phase presentations.</p>
+</div>
+</article></div>
+</div>
+</div> <!-- End portal-right-col -->
+<!-- End portal-split-layout -->
+<section class="presentation-section" id="presentation-deck">
+<div class="section-header-block" style="max-width: 100%;">
+<article class="bilingual-wrapper with-separator">
+<div class="bilingual-col">
+<span class="section-tag">[Otonom Dönüşüm]</span>
+<h2 class="section-heading-title">Hermes OS Şirketlerde Verimliliği Nasıl Artırır? (14 Adımlı Otonomizasyon Sunumu)</h2>
+<p class="section-heading-desc">Aşağıdaki interaktif panelden, şirketlerin otonom süreçlere geçiş rehberinin 14 sayfalık video ve görsel sunumunu adım adım inceleyin.</p>
+</div>
+<div class="bilingual-col">
+<span class="section-tag">[Autonomous Transformation]</span>
+<h2 class="section-heading-title">How Does Hermes OS Increase Efficiency in Enterprises? (14-Step Autonomization Presentation)</h2>
+<p class="section-heading-desc">Explore the 14-page video and visual presentation of the guide for companies transitioning to autonomous processes step by step from the interactive panel below.</p>
+</div>
+</article></div>
+<div class="presentation-layout">
+<div class="presentation-nav">
+<h4 class="deck-nav-title">Aşama Adımları / Phase Steps</h4>
+<div class="step-nav-wrapper">
+<button class="step-nav-btn active" data-phase="workflows" data-step="1">
+<span class="step-num">01</span>
+<span class="step-title">
+<span>Giriş ve Vizyon</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Introduction &amp; Vision</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="workflows" data-step="2">
+<span class="step-num">02</span>
+<span class="step-title">
+<span>Geleneksel SOP Analizi</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Traditional SOP Analysis</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="workflows" data-step="3">
+<span class="step-num">03</span>
+<span class="step-title">
+<span>Otonom Modelleme</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Autonomous Modeling</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="workflows" data-step="4">
+<span class="step-num">04</span>
+<span class="step-title">
+<span>İş Akışı Optimizasyonu</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Workflow Optimization</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="agents" data-step="5">
+<span class="step-num">05</span>
+<span class="step-title">
+<span>Yapay Zeka Ajan Seçimi</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">AI Agent Selection</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="agents" data-step="6">
+<span class="step-num">06</span>
+<span class="step-title">
+<span>Bilişsel Görev Dağılımı</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Cognitive Task Allocation</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="agents" data-step="7">
+<span class="step-num">07</span>
+<span class="step-title">
+<span>Ajanlar Arası İletişim</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Inter-Agent Communication</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="agents" data-step="8">
+<span class="step-num">08</span>
+<span class="step-title">
+<span>İş Gücü Entegrasyonu</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Workforce Integration</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="integration" data-step="9">
+<span class="step-num">09</span>
+<span class="step-title">
+<span>API ve Bağlantı Altyapısı</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">API &amp; Connectivity Infrastructure</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="integration" data-step="10">
+<span class="step-num">10</span>
+<span class="step-title">
+<span>Veri Ambarı Entegrasyonu</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Data Warehouse Integration</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="integration" data-step="11">
+<span class="step-num">11</span>
+<span class="step-title">
+<span>Güvenlik ve İzin Protokolleri</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Security &amp; Permission Protocols</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="analytics" data-step="12">
+<span class="step-num">12</span>
+<span class="step-title">
+<span>Verim ve Metrik İzleme</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Performance &amp; Metric Monitoring</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="analytics" data-step="13">
+<span class="step-num">13</span>
+<span class="step-title">
+<span>Hata Yönetimi ve Loglama</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Error Management &amp; Logging</small>
+</span>
+</button>
+<button class="step-nav-btn" data-phase="analytics" data-step="14">
+<span class="step-num">14</span>
+<span class="step-title">
+<span>Sürekli Otonom Gelişim</span>
+<small style="opacity: 0.6; font-size: 0.85em; font-weight: normal;">Continuous Autonomous Evolution</small>
+</span>
+</button>
+</div>
+</div>
+<div class="presentation-showcase">
+<div class="deck-card">
+<div class="video-container-w">
+<img alt="Otonom Süreç Sunumu / Autonomous Process Presentation" height="450" id="deck-gif" loading="lazy" src="assets/videos/1-sayfa.webp" width="800"/>
+</div>
+<div class="deck-meta">
+<article class="bilingual-wrapper with-separator">
+<div class="bilingual-col">
+<span class="lang-indicator">TR</span>
+<div class="deck-meta-top">
+<span class="deck-phase-tag red-tag" id="deck-phase-tag-tr">Otonom Süreçler</span>
+<span class="deck-step-tag" id="deck-step-tag-tr">Adım 01 / 14</span>
+</div>
+<h3 class="deck-title" id="deck-title-tr">Giriş ve Vizyon</h3>
+<p class="deck-desc" id="deck-desc-tr">
                       Kurumsal yapıların geleceği otonom işletim sistemlerinde yatıyor. Bu sayfada, şirketlerin verimsiz manuel operasyonlardan akıllı, otonom iş akışlarına geçiş vizyonunu inceliyoruz.
                     </p>
-                  </div>
-                  <div class="bilingual-col">
-                    <span class="lang-indicator">EN</span>
-                    <div class="deck-meta-top">
-                      <span id="deck-phase-tag-en" class="deck-phase-tag red-tag">Autonomous Processes</span>
-                      <span id="deck-step-tag-en" class="deck-step-tag">Step 01 / 14</span>
-                    </div>
-                    <h3 id="deck-title-en" class="deck-title">Introduction and Vision</h3>
-                    <p id="deck-desc-en" class="deck-desc">
+</div>
+<div class="bilingual-col">
+<span class="lang-indicator">EN</span>
+<div class="deck-meta-top">
+<span class="deck-phase-tag red-tag" id="deck-phase-tag-en">Autonomous Processes</span>
+<span class="deck-step-tag" id="deck-step-tag-en">Step 01 / 14</span>
+</div>
+<h3 class="deck-title" id="deck-title-en">Introduction and Vision</h3>
+<p class="deck-desc" id="deck-desc-en">
                       The future of corporate structures lies in autonomous operating systems. On this page, we explore the vision of companies transitioning from inefficient manual operations to smart, autonomous workflows.
                     </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section> <!-- End presentation-deck -->
-
-
-    </main>
-
-
-
-    <footer class="footer-w">
-      <div class="footer-layout">
-        <div class="footer-left">
-          <span class="footer-text">
+</div>
+</article></div>
+</div>
+</div>
+</div>
+</section> <!-- End presentation-deck -->
+</main><footer class="footer-w">
+<div class="footer-layout">
+<div class="footer-left">
+<span class="footer-text">
             © 2026 
-            <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="inline-logo-bird">
+            <img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
             ROBINK.ME. Tüm hakları saklıdır. / All rights reserved.
           </span>
-          <a href="#" class="footer-link js-terms-trigger">Kullanım Koşulları / Terms of Use</a>
-          <a href="#" class="footer-link js-privacy-trigger">Gizlilik Politikası / Privacy Policy</a>
-        </div>
-        <div class="footer-right">
-          <a href="https://robink.me" class="footer-attribution">
-            <img src="assets/images/robin-bird.jpg" alt="Robin Bird" class="footer-logo-bird">
+<a class="footer-link js-terms-trigger" href="terms.html">Kullanım Koşulları / Terms of Use</a>
+<a class="footer-link js-privacy-trigger" href="privacy.html">Gizlilik Politikası / Privacy Policy</a>
+</div>
+<div class="footer-right">
+<a class="footer-attribution" href="https://robink.me">
+<img alt="Robin Bird" class="footer-logo-bird" src="assets/images/robin-bird.jpg"/>
             RobinK.me
           </a>
-          <a href="contact.html" class="footer-contact-btn">İletişim / Contact</a>
-        </div>
-      </div>
-    </footer>
-
-  </div>
-
-  <script src="app.js"></script>
+<a class="footer-contact-btn" href="contact.html">İletişim / Contact</a>
+</div>
+</div>
+</footer></div>
+<div class="manifesto-w" id="terms-drawer">
+<div class="manifesto-layout">
+<div class="manifesto-header">
+<h2 class="manifesto-title">KOŞULLAR / TERMS</h2>
+<button aria-label="Koşulları Kapat" class="btn-close" id="terms-close">Kapat</button>
+</div>
+<div class="manifesto-content">
+<article class="bilingual-wrapper with-separator">
+<div class="bilingual-col">
+<span class="lang-indicator">TR</span>
+<p class="text-manifesto-sub">
+<strong>
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
+                  robink.me Kullanım ve Gizlilik Koşulları
+                </strong>
+</p>
+<p class="text-manifesto-body">
+                Sitemizi ziyaret ettiğiniz için teşekkürler. robink.me'yi kullanırken geçerli olan kurallar ve veri politikamız oldukça nettir:
+              </p>
+<h3 class="manifesto-section-title">1. Genel Kurallar</h3>
+<p class="text-manifesto-body">
+                Sitedeki içerikler, kodlar ve tasarımlar aksi belirtilmedikçe bize aittir. İzinsiz kopyalanması veya ticari amaçla kullanılması yasaktır.
+              </p>
+<p class="text-manifesto-body">
+                Siteye zarar verecek teknik müdahalelerde bulunmamayı ve siteyi yasalara uygun şekilde kullanmayı kabul edersiniz.
+              </p>
+<p class="text-manifesto-body">
+                Site "olduğu gibi" sunulmaktadır; teknik kesintilerden veya sunucu kaynaklı gecikmelerden sorumluluk kabul edilmez.
+              </p>
+<h3 class="manifesto-section-title">2. Uluslararası İletişim ve Gizlilik</h3>
+<p class="text-manifesto-body">
+                Sitemiz dünya çapında erişime açıktır. Uluslararası ziyaretçilerimizle olan iletişimimizde ve veri yönetimimizde, küresel veri koruma standartları (GDPR ve benzeri uluslararası gizlilik ilkeleri) esas alınır.
+              </p>
+<p class="text-manifesto-body">
+                Kişisel verileriniz rızanız dışında üçüncü taraflarla paylaşılmaz, satılmaz veya kötüye kullanılmaz.
+              </p>
+<h3 class="manifesto-section-title">3. Türkiye İçin KVKK Geçerliliği</h3>
+<p class="text-manifesto-body">
+                Türkiye'deki kullanıcılarımız ve ziyaretçilerimiz için 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) tam olarak geçerlidir.
+              </p>
+<p class="text-manifesto-body">
+                Sitemiz üzerinden (iletişim formları, e-bülten vb. yollarla) bizimle paylaştığınız tüm kişisel veriler, KVKK mevzuatına uygun olarak, güvenli bir şekilde işlenir ve saklanır. Dilediğiniz zaman verilerinizin silinmesini veya düzeltilmesini talep etme hakkınız saklıdır.
+              </p>
+<h3 class="manifesto-section-title">4. İletişim</h3>
+<p class="text-manifesto-body">
+                Kurallar veya verilerinizin işlenmesiyle ilgili her türlü soru ve talebiniz için bizimle iletişime geçebilirsiniz:
+              </p>
+<p class="text-manifesto-body">
+<strong>E-posta:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
+</p>
+</div>
+<div class="bilingual-col">
+<span class="lang-indicator">EN</span>
+<p class="text-manifesto-sub">
+<strong>
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
+                  robink.me Terms of Use &amp; Privacy Policy
+                </strong>
+</p>
+<p class="text-manifesto-body">
+                Thank you for visiting our site. The rules and our data policy applicable while using robink.me are very clear:
+              </p>
+<h3 class="manifesto-section-title">1. General Rules</h3>
+<p class="text-manifesto-body">
+                Unless otherwise stated, all content, code, and designs on this site belong to us. Unauthorized copying or commercial use is prohibited.
+              </p>
+<p class="text-manifesto-body">
+                You agree not to make technical interventions that would harm the site and to use the site in compliance with laws.
+              </p>
+<p class="text-manifesto-body">
+                The site is provided "as is"; no liability is accepted for technical interruptions or server-induced delays.
+              </p>
+<h3 class="manifesto-section-title">2. International Communication and Privacy</h3>
+<p class="text-manifesto-body">
+                Our website is accessible worldwide. For communications and data management with our international visitors, global data protection standards (GDPR and similar international privacy principles) are taken as basis.
+              </p>
+<p class="text-manifesto-body">
+                Your personal data will not be shared with third parties, sold, or misused without your consent.
+              </p>
+<h3 class="manifesto-section-title">3. KVKK Applicability for Turkey</h3>
+<p class="text-manifesto-body">
+                For our users and visitors in Turkey, the Law on the Protection of Personal Data No. 6698 (KVKK) is fully applicable.
+              </p>
+<p class="text-manifesto-body">
+                All personal data you share with us (via contact forms, e-newsletters, etc.) on our site is processed and stored securely in accordance with KVKK regulations. You reserve the right to request deletion or correction of your data at any time.
+              </p>
+<h3 class="manifesto-section-title">4. Contact</h3>
+<p class="text-manifesto-body">
+                For any questions and requests regarding the rules or the processing of your data, you can contact us:
+              </p>
+<p class="text-manifesto-body">
+<strong>Email:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
+</p>
+</div>
+</article></div>
+</div>
+</div>
+<div class="manifesto-w" id="privacy-drawer">
+<div class="manifesto-layout">
+<div class="manifesto-header">
+<h2 class="manifesto-title">GİZLİLİK / PRIVACY</h2>
+<button aria-label="Gizliliği Kapat" class="btn-close" id="privacy-close">Kapat</button>
+</div>
+<div class="manifesto-content">
+<article class="bilingual-wrapper with-separator">
+<div class="bilingual-col">
+<span class="lang-indicator">TR</span>
+<p class="text-manifesto-sub">
+<strong>
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
+                  robink.me Gizlilik Politikası
+                </strong>
+</p>
+<p class="text-manifesto-body">
+                Bu politika, robink.me üzerinde kişisel verilerinizin nasıl işlendiğini, korunduğunu ve veri gizliliği haklarınızı açıklar.
+              </p>
+<h3 class="manifesto-section-title">1. Toplanan Veriler ve Kullanım Amacı</h3>
+<p class="text-manifesto-body">
+                Sitemizde veri minimum düzeyde tutulur ve sadece şu amaçlarla işlenir:
+              </p>
+<p class="text-manifesto-body">
+<strong>İletişim Verileri:</strong> Bizimle doğrudan e-posta yoluyla paylaştığınız ad, soyad ve e-posta adresi, sadece sorularınıza yanıt vermek amacıyla kullanılır.
+              </p>
+<p class="text-manifesto-body">
+<strong>Analiz Verileri:</strong> Sitenin performansını ölçmek amacıyla kişisel olmayan, anonim istatistikler (ziyaretçi sayısı, tıklama oranları) toplanabilir.
+              </p>
+<h3 class="manifesto-section-title">2. Uluslararası Gizlilik Standartları (GDPR)</h3>
+<p class="text-manifesto-body">
+                Sitemiz dünya genelindeki tüm ziyaretçilerin gizlilik haklarına saygı duyar.
+              </p>
+<p class="text-manifesto-body">
+                Uluslararası kullanıcılar için küresel veri koruma standartları ve GDPR (Avrupa Genel Veri Koruma Yönetmeliği) esas alınır. Kişisel verileriniz hiçbir şekilde üçüncü taraflara satılmaz, kiralanmaz veya izinsiz paylaşılmaz.
+              </p>
+<h3 class="manifesto-section-title">3. Türkiye İçin KVKK Geçerliliği</h3>
+<p class="text-manifesto-body">
+                Türkiye’deki kullanıcılarımız için 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) tam olarak geçerlidir. KVKK kapsamında şu haklara sahipsiniz:
+              </p>
+<ul class="manifesto-list">
+<li>Verilerinizin işlenip işlenmediğini öğrenme,</li>
+<li>Verileriniz işlenmişse buna ilişkin bilgi talep etme,</li>
+<li>Eksik veya yanlış işlenen verilerin düzeltilmesini isteme,</li>
+<li>Verilerinizin sistemlerimizden tamamen silinmesini veya yok edilmesini talep etme.</li>
+</ul>
+<h3 class="manifesto-section-title">4. Çerezler (Cookies)</h3>
+<p class="text-manifesto-body">
+                Sitede yalnızca kullanıcı deneyimini optimize etmek ve site trafiğini anlamak için temel çerezler kullanılır. Çerezleri tarayıcı ayarlarınızdan dilediğiniz zaman engelleyebilirsiniz.
+              </p>
+<h3 class="manifesto-section-title">5. Veri Talepleri ve İletişim</h3>
+<p class="text-manifesto-body">
+                Gizlilik haklarınızı kullanmak, verilerinizin silinmesini talep etmek veya politika hakkında soru sormak için bizimle iletişime geçebilirsiniz:
+              </p>
+<p class="text-manifesto-body">
+<strong>E-posta:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
+</p>
+</div>
+<div class="bilingual-col">
+<span class="lang-indicator">EN</span>
+<p class="text-manifesto-sub">
+<strong>
+<img alt="Robin Bird" class="inline-logo-bird" height="20" src="assets/images/robin-bird.jpg" width="20"/>
+                  robink.me Privacy Policy
+                </strong>
+</p>
+<p class="text-manifesto-body">
+                This policy explains how your personal data is processed, protected, and your data privacy rights on robink.me.
+              </p>
+<h3 class="manifesto-section-title">1. Collected Data and Purpose of Use</h3>
+<p class="text-manifesto-body">
+                Data collection on our site is kept to a minimum and processed only for the following purposes:
+              </p>
+<p class="text-manifesto-body">
+<strong>Communication Data:</strong> Your name, surname, and email address shared with us directly via email are only used to answer your questions.
+              </p>
+<p class="text-manifesto-body">
+<strong>Analytical Data:</strong> Non-personal, anonymous statistics (number of visitors, click-through rates) may be collected to measure site performance.
+              </p>
+<h3 class="manifesto-section-title">2. International Privacy Standards (GDPR)</h3>
+<p class="text-manifesto-body">
+                Our site respects the privacy rights of all visitors worldwide.
+              </p>
+<p class="text-manifesto-body">
+                For international users, global data protection standards and GDPR (European General Data Protection Regulation) are taken as basis. Your personal data is under no circumstances sold, rented, or shared without permission.
+              </p>
+<h3 class="manifesto-section-title">3. KVKK Applicability for Turkey</h3>
+<p class="text-manifesto-body">
+                For our users in Turkey, the Law on the Protection of Personal Data No. 6698 (KVKK) is fully applicable. Under KVKK, you have the following rights:
+              </p>
+<ul class="manifesto-list">
+<li>To learn whether your personal data is processed,</li>
+<li>To request information if your data has been processed,</li>
+<li>To request correction of incomplete or incorrectly processed data,</li>
+<li>To request complete deletion or destruction of your data from our systems.</li>
+</ul>
+<h3 class="manifesto-section-title">4. Cookies</h3>
+<p class="text-manifesto-body">
+                Only essential cookies are used on the site to optimize user experience and understand site traffic. You can block cookies at any time through your browser settings.
+              </p>
+<h3 class="manifesto-section-title">5. Data Requests and Contact</h3>
+<p class="text-manifesto-body">
+                To exercise your privacy rights, request deletion of your data, or ask questions about the policy, you can contact us:
+              </p>
+<p class="text-manifesto-body">
+<strong>Email:</strong> <a href="mailto:78@robink.me" style="text-decoration: underline; color: var(--color-text);">78@robink.me</a>
+</p>
+</div>
+</article></div>
+</div>
+</div>
+<script src="app.js"></script>
 </body>
 </html>
